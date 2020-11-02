@@ -8,6 +8,7 @@ $username = "";
 $email = "";
 $phone = "";
 $name = "";
+$nif = "";
 $surname = "";
 $errors = array();
 $date = date('d-m-y');
