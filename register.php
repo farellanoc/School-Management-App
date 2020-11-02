@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Login</a>
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
                 </ul>
 
@@ -65,7 +65,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-4 col-form-label text-md-right">Apellido</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="name" class="form-control" name="name">
+                                        <input type="text" id="surname" class="form-control" name="surname">
                                     </div>
                                 </div>
                                 <div class="form-group row">
