@@ -1,3 +1,4 @@
+<?php include('functions.php') ?>
 <!doctype html>
 <html lang="en">
 
@@ -42,44 +43,75 @@
                     <div class="card">
                         <div class="card-header">Register</div>
                         <div class="card-body">
-                            <form name="my-form" action="" method="">
+                            <form name="my-form" action="register.php" method="POST">
+                                <?php if($errors): ?>
+                                <div class="alert alert-danger" role="alert">  
+                                <?php echo display_error(); ?>
+                                </div>
+                                <?php endif; ?>
+
                                 <div class="form-group row">
-                                    <label for="full_name" class="col-md-4 col-form-label text-md-right"></label>
+                                    <label class="col-md-4 col-form-label text-md-right"></label>
                                     <div class="col-md-6">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="full_name" class="col-md-4 col-form-label text-md-right">Full
-                                        Name</label>
+                                    <label class="col-md-4 col-form-label text-md-right">Nombre</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="fullname" class="form-control" name="fullname">
+                                        <input type="text" id="name" class="form-control" name="name">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">User
+                                    <label class="col-md-4 col-form-label text-md-right">Apellido</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="name" class="form-control" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label text-md-right">User
                                         Name</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="username" class="form-control" name="username">
+                                        <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username, ENT_QUOTES); ?>" class="form-control" name="username">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail
+                                    <label class="col-md-4 col-form-label text-md-right">E-Mail
                                         Address</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email" class="form-control" name="email">
+                                        <input type="text" id="email" name="email" value="<?php echo htmlspecialchars($email, ENT_QUOTES); ?>" class="form-control" name="email">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                    <label class="col-md-4 col-form-label text-md-right">Teléfono</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control">
+                                        <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone, ENT_QUOTES); ?>" class="form-control" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label text-md-right">DNI</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="nif" name="nif" value="<?php echo htmlspecialchars($nif, ENT_QUOTES); ?>" class="form-control" name="nif">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label text-md-right">Contraseña</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="password" name="password_1" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label text-md-right">Repite la contraseña</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="password2" name="password_2" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="button" class="btn btn-primary" id="rgstr_btn" onClick="">
+                                    <button type="submit" class="btn btn-primary" name="register_btn">
                                         Register
                                     </button>
                                 </div>
