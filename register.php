@@ -58,14 +58,14 @@
                                 <div class="form-group row">
                                     <label class="col-md-4 col-form-label text-md-right">Nombre</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="name" class="form-control" name="name">
+                                        <input type="text" id="name" value="<?php echo htmlspecialchars($name, ENT_QUOTES); ?>" class="form-control" name="name">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-md-4 col-form-label text-md-right">Apellido</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="surname" class="form-control" name="surname">
+                                        <input type="text" id="surname" value="<?php echo htmlspecialchars($surname, ENT_QUOTES); ?>" class="form-control" name="surname">
                                     </div>
                                 </div>
                                 <div class="form-group row">
