@@ -19,11 +19,10 @@ if (isset($_POST['register_btn'])) {
     register();
 }
 
-
 //mostrar total usuarios
 function total_usuarios($db)
 {
-    $result = $db->query("SELECT COUNT(*) FROM users");
+    $result = $db->query("SELECT COUNT(*) FROM students");
     $row = $result->fetch_row();
     $total_users = $row[0];
     return $total_users;
@@ -37,7 +36,6 @@ function register()
 
     // receive all input values from the form. Call the e() function
     // defined below to escape form values
-    $id = NULL;
     $username = e($_POST['username']);
     $name = e($_POST['name']);
     $surname = e($_POST['surname']);
@@ -84,25 +82,11 @@ function register()
     // register user if there are no errors in the form
     if (count($errors) == 0) {
         $password = md5($password_1); //encrypt the password before saving in the database
-        if (isset($_POST['user_type'])) {
-            $user_type = e($_POST['user_type']);
-            $check = "SELECT * FROM students WHERE nif = '$nif'";
+            $check = "SELECT * FROM students WHERE username = '$username'";
             $res_check = mysqli_query($db, $check);
             if (mysqli_num_rows($res_check) == 0) {
-                $query = "INSERT INTO students (id, username, name, surname, nif, date ,phone, email, user_type, password) 
-					  VALUES($id,'$username', '$name', '$surname', '$nif', '$date','$phone', '$email', '$user_type', '$password')";
-                mysqli_query($db, $query);
-                $_SESSION['success'] = "Nuevo usuario creado correctamente!";
-                header('location: home.php');
-            } else {
-                echo "El usuario existe";
-            }
-        } else {
-            $check = "SELECT * FROM students WHERE nif = '$nif'";
-            $res_check = mysqli_query($db, $check);
-            if (mysqli_num_rows($res_check) == 0) {
-                $query = "INSERT INTO students (id, username, name, surname, nif, date ,phone, email, user_type, password) 
-					  VALUES($id,'$username', '$name', '$surname', '$nif', '$date','$phone', '$email', 'user', '$password')";
+                $query = "INSERT INTO students (id, username, pass, email, name, surname, telephone, nif, date_registered) 
+					  VALUES(NULL, '$username', '$password', '$email', '$name', '$surname', '$phone', '$nif', '$date')";
                 mysqli_query($db, $query);
             }
             // get id of the created user
@@ -110,10 +94,9 @@ function register()
 
             $_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
             $_SESSION['success'] = "Bienvenid@!";
-            header('location: home.php');
+            header('location: index.php');
         }
     }
-}
 
 // return user array from their id
 function getUserById($id)
@@ -173,7 +156,7 @@ function login()
 {
     global $db, $username, $errors;
 
-    // grap form values
+    // grab form values
     $username = e($_POST['username']);
     $password = e($_POST['password']);
 
@@ -189,33 +172,16 @@ function login()
     if (count($errors) == 0) {
         $password = md5($password);
 
-        $query = "SELECT * FROM users WHERE username='$username' AND password='$password' LIMIT 1";
+        $query = "SELECT * FROM students WHERE username='$username' AND pass='$password' LIMIT 1";
         $results = mysqli_query($db, $query);
 
         if (mysqli_num_rows($results) == 1) { // user found
-            // check if user is admin or user
             $logged_in_user = mysqli_fetch_assoc($results);
-            if ($logged_in_user['user_type'] == 'admin') {
                 $_SESSION['user'] = $logged_in_user;
                 $_SESSION['success'] = "Bienvenid@!";
-                header('location: admin/index.php');
-            } else {
-                $_SESSION['user'] = $logged_in_user;
-                $_SESSION['success'] = "Bienvenid@!";
-
-                header('location: home.php');
+                header('location: index.php');
             }
         } else {
             array_push($errors, "La clave o el usuario no coinciden");
         }
     }
-}
-
-function isAdmin()
-{
-    if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin') {
-        return true;
-    } else {
-        return false;
-    }
-}
