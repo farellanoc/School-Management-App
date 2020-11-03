@@ -23,7 +23,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Interface
+  Crear
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
@@ -43,16 +43,16 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="createAdmin.php" aria-expanded="true">
+  <a class="nav-link collapsed" href="createTeacher.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
-    <span>Crear administrador</span>
+    <span>Crear profesor</span>
   </a>
 </li>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="createTeacher.php" aria-expanded="true">
+  <a class="nav-link collapsed" href="createAdmin.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
-    <span>Crear profesor</span>
+    <span>Crear administrador</span>
   </a>
 </li>
 
@@ -60,6 +60,33 @@
 <div class="text-center d-none d-md-inline">
   <button class="rounded-circle border-0" id="sidebarToggle"></button>
 </div>
+
+<!-- Heading -->
+<div class="sidebar-heading">
+  Modificaciones
+</div>
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="" aria-expanded="true">
+    <i class="fas fa-plus"></i>
+    <span>Modificar / eliminar Asignatura</span>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="" aria-expanded="true">
+    <i class="fas fa-plus"></i>
+    <span>Modificar / eliminar Curso</span>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="" aria-expanded="true">
+    <i class="fas fa-plus"></i>
+    <span>Modificar / eliminar Profesor</span>
+  </a>
+</li>
+
 
 </ul>
 <!-- End of Sidebar -->
