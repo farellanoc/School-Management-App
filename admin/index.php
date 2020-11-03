@@ -1,3 +1,10 @@
+<?php
+include('../functions.php');
+if (!isAdmin()) {
+  $_SESSION['msg'] = "Debes ser administrador";
+  header('location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +20,7 @@
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -23,12 +28,14 @@
 </head>
 
 <body id="page-top">
+  <!-- logged in admin information -->
+  <?php include("includes/session.php"); ?>
 
   <!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
-<?php include("includes/drawerMenu.php")?>
+    <?php include("includes/drawerMenu.php") ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -45,61 +52,111 @@
           </button>
 
           <!-- Topbar Navbar -->
-         <?php include("includes/topbar.php");?>
+          <?php include("includes/topbar.php"); ?>
 
-        <!-- End of Topbar -->
+          <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
 
-          <!-- Content Row -->
-          <div class="row">
+            <!-- Content Row -->
+            <div class="row">
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Asignaturas</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">??????</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Cursos</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">???????</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+              <!-- Classes -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Asignaturas</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?php 
+                        $totalClasses = getClasses($db);
+                        echo $totalClasses;
+                        ?>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- /.container-fluid -->
+              <!-- Courses -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Cursos</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?php 
+                        $totalCourses = getCourses($db);
+                        echo $totalCourses;
+                        ?>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Teachers -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Profesores</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php 
+                        $totalTeachers = getTeachers($db);
+                        echo $totalTeachers;
+                        ?></div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Students -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Estudiantes</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php 
+                        $totalStudents = getStudents($db);
+                        echo $totalStudents;
+                        ?></div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php include("includes/footer.php"); ?>
+            <!-- End of Footer -->
 
           </div>
-          <!-- End of Main Content -->
-
-          <!-- Footer -->
-          <?php include("includes/footer.php");?>
-          <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
+          <!-- End of Content Wrapper -->
 
       </div>
       <!-- End of Page Wrapper -->
@@ -109,8 +166,7 @@
         <i class="fas fa-angle-up"></i>
       </a>
 
-     <?php include("includes/scripts.php");?>
-
+      <?php include("includes/scripts.php"); ?>
 </body>
 
 </html>
