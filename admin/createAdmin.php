@@ -1,3 +1,4 @@
+<?php include('../functions.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +14,7 @@
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -28,7 +27,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-<?php include("includes/drawerMenu.php")?>
+    <?php include("includes/drawerMenu.php") ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -45,37 +44,104 @@
           </button>
 
           <!-- Topbar Navbar -->
-         <?php include("includes/topbar.php");?>
+          <?php include("includes/topbar.php"); ?>
 
-        <!-- End of Topbar -->
+          <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
 
-          <!-- Content Row -->
-          <div class="row">
+            <main class="my-form">
+              <div class="cotainer">
+                <div class="row justify-content-center">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header">Register</div>
+                      <div class="card-body">
+                        <form name="my-form" action="createAdmin.php" method="POST">
+                          <?php if ($errors) : ?>
+                            <div class="alert alert-danger" role="alert">
+                              <?php echo display_error(); ?>
+                            </div>
+                          <?php endif; ?>
 
-            <p>AÑADIR FORM</p>
+                          <?php if ($success) : ?>
+                            <div class="alert alert-success" role="alert">
+                              <?php echo display_success(); ?>
+                            </div>
+                          <?php endif; ?>
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right"></label>
+                            <div class="col-md-6">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Nombre</label>
+                            <div class="col-md-6">
+                              <input type="text" id="name" value="<?php echo htmlspecialchars($name, ENT_QUOTES); ?>" class="form-control" name="name">
+                            </div>
+                          </div>
 
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">User
+                              Name</label>
+                            <div class="col-md-6">
+                              <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username, ENT_QUOTES); ?>" class="form-control" name="username">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">E-Mail
+                              Address</label>
+                            <div class="col-md-6">
+                              <input type="text" id="email" name="email" value="<?php echo htmlspecialchars($email, ENT_QUOTES); ?>" class="form-control" name="email">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Contraseña</label>
+                            <div class="col-md-6">
+                              <input type="password" id="password" name="password_1" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Repite la contraseña</label>
+                            <div class="col-md-6">
+                              <input type="password" id="password2" name="password_2" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary" name="registerAdmin_btn">
+                              Register
+                            </button>
+                          </div>
+                      </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
+
+          </main>
           <!-- End of Main Content -->
 
           <!-- Footer -->
-          <?php include("includes/footer.php");?>
+          <?php include("includes/footer.php"); ?>
           <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
-
       </div>
-      <!-- End of Page Wrapper -->
+      <!-- End of Content Wrapper -->
 
-      <!-- Scroll to Top Button-->
-      <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-      </a>
+    </div>
+    <!-- End of Page Wrapper -->
 
-     <?php include("includes/scripts.php");?>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <?php include("includes/scripts.php"); ?>
 
 </body>
 
