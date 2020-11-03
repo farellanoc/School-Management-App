@@ -15,15 +15,37 @@ $success = array();
 $date = date('d-m-y');
 $time = date('H:i');
 
-// call the register() function if register_btn is clicked
-if (isset($_POST['register_btn'])) {
-    register();
+//mostrar total profesores
+function getTeachers($db)
+{
+    $result = $db->query("SELECT COUNT(*) FROM teachers");
+    $row = $result->fetch_row();
+    $total_users = $row[0];
+    return $total_users;
 }
 
-//mostrar total usuarios
-function total_usuarios($db)
+//mostrar total estudiantes
+function getStudents($db)
 {
     $result = $db->query("SELECT COUNT(*) FROM students");
+    $row = $result->fetch_row();
+    $total_users = $row[0];
+    return $total_users;
+}
+
+//mostrar total cursos
+function getCourses($db)
+{
+    $result = $db->query("SELECT COUNT(*) FROM courses");
+    $row = $result->fetch_row();
+    $total_users = $row[0];
+    return $total_users;
+}
+
+//mostrar total clases
+function getClasses($db)
+{
+    $result = $db->query("SELECT COUNT(*) FROM class");
     $row = $result->fetch_row();
     $total_users = $row[0];
     return $total_users;
@@ -99,7 +121,7 @@ function register()
     }
 }
 
-// REGISTER USER
+// REGISTER ADMIN
 function registerAdmin()
 {
     // call these variables with the global keyword to make them available in function
@@ -155,6 +177,56 @@ function registerAdmin()
         $_SESSION['admin'] = getUserById($logged_in_user_id); // put logged in user in session
         $_SESSION['success'] = "Administrador creado correctamente";
         array_push($success, "Registrado correctamente");
+    }
+}
+
+// REGISTER TEACHER
+function registerTeacher()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $username, $email, $success;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $name = e($_POST['name']);
+    $surname = e($_POST['surname']);
+    $phone = e($_POST['telephone']);
+    $nif = e($_POST['nif']);
+    $email = e($_POST['email']);
+
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($surname)) {
+        array_push($errors, "Se requiere un apellido");
+    }
+    if (empty($email)) {
+        array_push($errors, "Se requiere un email");
+    }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un nombre");
+    }
+    if (empty($phone)) {
+        array_push($errors, "Se requiere un teléfono");
+    }
+    if (empty($nif)) {
+        array_push($errors, "Se requiere un DNI");
+    }
+    //comprueba que no exista el usuario
+    $check = "SELECT nif FROM teachers WHERE nif = '$nif'";
+    $res_check = mysqli_query($db, $check);
+    if (mysqli_num_rows($res_check) >= 1) {
+        array_push($errors, "El usuario ya existe");
+    }
+    // register user if there are no errors in the form
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM teachers WHERE nif = '$nif'";
+        $res_check = mysqli_query($db, $check);
+        if (mysqli_num_rows($res_check) == 0) {
+            $query = "INSERT INTO teachers (id_teacher, name, surname, telephone, nif, email) 
+					  VALUES(NULL, '$name', '$surname','$phone','$nif', '$email')";
+            mysqli_query($db, $query);
+        }
+        array_push($success, "Profesor registrado correctamente");
     }
 }
 
@@ -267,9 +339,21 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
 }
 
-// call the login() function if register_btn is clicked
-if (isset($_POST['login_btn'])) {
-    login();
+
+
+// call the register() function if register_btn is clicked
+if (isset($_POST['register_btn'])) {
+    register();
+}
+
+// call the registerAdmin() function if register_btn is clicked
+if (isset($_POST['registerAdmin_btn'])) {
+    registerAdmin();
+}
+
+// call the registerTeacher() function if register_btn is clicked
+if (isset($_POST['registerTeacher_btn'])) {
+    registerTeacher();
 }
 
 // call the updateUser() function if update_btn is clicked
@@ -278,9 +362,15 @@ if (isset($_POST['update_btn'])) {
 }
 
 // call the login() function if register_btn is clicked
-if (isset($_POST['registerAdmin_btn'])) {
-    registerAdmin();
+if (isset($_POST['login_btn'])) {
+    login();
 }
+
+// call the loginAdmin() function if register_btn is clicked
+if (isset($_POST['loginAdmin_btn'])) {
+    loginAdmin();
+}
+
 // LOGIN USER
 function login()
 {
@@ -308,6 +398,41 @@ function login()
         if (mysqli_num_rows($results) == 1) { // user found
             $logged_in_user = mysqli_fetch_assoc($results);
             $_SESSION['user'] = $logged_in_user;
+            $_SESSION['success'] = "Bienvenid@!";
+            header('location: index.php');
+        }
+    } else {
+        array_push($errors, "La clave o el usuario no coinciden");
+    }
+}
+
+// LOGIN ADMIN
+function loginAdmin()
+{
+    global $db, $username, $errors;
+
+    // grab form values
+    $username = e($_POST['username']);
+    $password = e($_POST['password']);
+
+    // make sure form is filled properly
+    if (empty($username)) {
+        array_push($errors, "Se requiere nombre de usuario");
+    }
+    if (empty($password)) {
+        array_push($errors, "Se requiere una clave");
+    }
+
+    // attempt login if no errors on form
+    if (count($errors) == 0) {
+        $password = md5($password);
+
+        $query = "SELECT * FROM users_admin WHERE username='$username' AND password='$password' LIMIT 1";
+        $results = mysqli_query($db, $query);
+
+        if (mysqli_num_rows($results) == 1) { // user found
+            $logged_in_admin = mysqli_fetch_assoc($results);
+            $_SESSION['admin'] = $logged_in_admin;
             $_SESSION['success'] = "Bienvenid@!";
             header('location: index.php');
         }

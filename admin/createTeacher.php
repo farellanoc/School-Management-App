@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Crear administrador</title>
+  <title>Crear profesor</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -57,9 +57,9 @@
                 <div class="row justify-content-center">
                   <div class="col-md-8">
                     <div class="card">
-                      <div class="card-header">Crear administrador</div>
+                      <div class="card-header">Crear profesor</div>
                       <div class="card-body">
-                        <form name="my-form" action="createAdmin.php" method="POST">
+                        <form name="my-form" action="createTeacher.php" method="POST">
                           <?php if ($errors) : ?>
                             <div class="alert alert-danger" role="alert">
                               <?php echo display_error(); ?>
@@ -84,10 +84,9 @@
                           </div>
 
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">User
-                              Name</label>
+                            <label class="col-md-4 col-form-label text-md-right">Apellido</label>
                             <div class="col-md-6">
-                              <input type="text" id="username" name="username" class="form-control" name="username">
+                              <input type="text" id="surname" name="surname" class="form-control" name="surname">
                             </div>
                           </div>
 
@@ -100,20 +99,22 @@
                           </div>
 
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Contraseña</label>
+                            <label class="col-md-4 col-form-label text-md-right">Teléfono</label>
                             <div class="col-md-6">
-                              <input type="password" id="password" name="password_1" class="form-control">
+                              <input type="text" id="telephone" name="telephone" class="form-control" name="telephone">
                             </div>
                           </div>
+
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Repite la contraseña</label>
+                            <label class="col-md-4 col-form-label text-md-right">DNI</label>
                             <div class="col-md-6">
-                              <input type="password" id="password2" name="password_2" class="form-control">
+                              <input type="text" id="nif" name="nif" class="form-control" name="nif">
                             </div>
                           </div>
+
                           <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary" name="registerAdmin_btn">
-                              Register
+                            <button type="submit" class="btn btn-primary" name="registerTeacher_btn">
+                              Registrar
                             </button>
                           </div>
                       </div>

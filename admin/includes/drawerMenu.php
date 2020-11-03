@@ -49,6 +49,13 @@
   </a>
 </li>
 
+<li class="nav-item">
+  <a class="nav-link collapsed" href="createTeacher.php" aria-expanded="true">
+    <i class="fas fa-plus"></i>
+    <span>Crear profesor</span>
+  </a>
+</li>
+
 <!-- Sidebar Toggler (Sidebar) -->
 <div class="text-center d-none d-md-inline">
   <button class="rounded-circle border-0" id="sidebarToggle"></button>
