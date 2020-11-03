@@ -252,6 +252,15 @@ function isLoggedIn()
     }
 }
 
+function isAdmin()
+{
+    if (isset($_SESSION['admin'])) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['user']);
