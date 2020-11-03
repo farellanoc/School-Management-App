@@ -11,6 +11,7 @@ $name = "";
 $nif = "";
 $surname = "";
 $errors = array();
+$success = array();
 $date = date('d-m-y');
 $time = date('H:i');
 
@@ -102,7 +103,7 @@ function register()
 function registerAdmin()
 {
     // call these variables with the global keyword to make them available in function
-    global $db, $errors, $username, $email;
+    global $db, $errors, $username, $email, $success;
 
     // receive all input values from the form. Call the e() function
     // defined below to escape form values
@@ -153,6 +154,7 @@ function registerAdmin()
 
         $_SESSION['admin'] = getUserById($logged_in_user_id); // put logged in user in session
         $_SESSION['success'] = "Administrador creado correctamente";
+        array_push($success, "Registrado correctamente");
     }
 }
 
@@ -226,6 +228,21 @@ function display_error()
     }
 }
 
+function display_success()
+{
+    global $success;
+
+    if (count($success) > 0) {
+        echo '<div class="alert alert-small alert-round-medium bg-green-dark">
+                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-times"></i>';
+        foreach ($success as $succs) {
+            echo $succs . '<br>';
+        }
+        echo '</div>';
+    }
+}
+
 function isLoggedIn()
 {
     if (isset($_SESSION['user'])) {
@@ -246,11 +263,15 @@ if (isset($_POST['login_btn'])) {
     login();
 }
 
-// call the login() function if register_btn is clicked
+// call the updateUser() function if update_btn is clicked
 if (isset($_POST['update_btn'])) {
     updateUser();
 }
 
+// call the login() function if register_btn is clicked
+if (isset($_POST['registerAdmin_btn'])) {
+    registerAdmin();
+}
 // LOGIN USER
 function login()
 {
