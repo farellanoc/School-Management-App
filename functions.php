@@ -14,6 +14,8 @@ $errors = array();
 $success = array();
 $date = date('d-m-y');
 $time = date('H:i');
+$date_start = "";
+$date_end ="";
 
 //mostrar total profesores
 function getTeachers($db)
@@ -230,8 +232,47 @@ function registerTeacher()
     }
 }
 
-//Update function
 
+// REGISTER TEACHER
+function registerCourse()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $name = e($_POST['name']);
+    $description = e($_POST['description']);
+    $date_start = e($_POST['date_start']);
+    $date_end = e($_POST['date_end']);
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($date_start)) {
+        array_push($errors, "Se requiere un apellido");
+    }
+    if (empty($description)) {
+        array_push($errors, "Se requiere un email");
+    }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un nombre");
+    }
+    if (empty($date_end)) {
+        array_push($errors, "Se requiere un teléfono");
+    }
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM courses WHERE name = '$name'";
+        $res_check = mysqli_query($db, $check);
+        if (mysqli_num_rows($res_check) == 0) {
+            $query = "INSERT INTO courses (id_course, name, description, date_start, date_end, active) 
+					  VALUES(NULL, '$name', '$description','$date_start','$date_end', 1)";
+            mysqli_query($db, $query);
+        }
+        array_push($success, "Curso registrado correctamente");
+    }
+}
+
+//Update function
 function updateUser()
 {
     // call these variables with the global keyword to make them available in function
@@ -354,6 +395,11 @@ if (isset($_POST['registerAdmin_btn'])) {
 // call the registerTeacher() function if register_btn is clicked
 if (isset($_POST['registerTeacher_btn'])) {
     registerTeacher();
+}
+
+// call the registerCourse() function if registerCourse_btn is clicked
+if (isset($_POST['registerCourse_btn'])) {
+    registerCourse();
 }
 
 // call the updateUser() function if update_btn is clicked
