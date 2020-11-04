@@ -59,7 +59,7 @@
                     <div class="card">
                       <div class="card-header">Crear Curso</div>
                       <div class="card-body">
-                        <form name="my-form" action="createAdmin.php" method="POST">
+                        <form name="my-form" action="createCourse.php" method="POST">
                           <?php if ($errors) : ?>
                             <div class="alert alert-danger" role="alert">
                               <?php echo display_error(); ?>
