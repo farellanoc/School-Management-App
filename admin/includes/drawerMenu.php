@@ -28,7 +28,7 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#" aria-expanded="true">
+  <a class="nav-link collapsed" href="createClass.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
     <span>Crear asignatura</span>
   </a>
@@ -46,6 +46,13 @@
   <a class="nav-link collapsed" href="createTeacher.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
     <span>Crear profesor</span>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="createSchedule.php" aria-expanded="true">
+    <i class="fas fa-plus"></i>
+    <span>Crear horario</span>
   </a>
 </li>
 
