@@ -82,7 +82,7 @@ if (!isAdmin()) {
                             <tbody>
                               <!-- Carga toda la información que asociará a las columnas -->
                               <?php
-                              $query = "SELECT * FROM classes";
+                              $query = "SELECT * FROM class";
                               $res = mysqli_query($db, $query);
                               while ($row = mysqli_fetch_assoc($res)) {
                               ?>
@@ -239,6 +239,57 @@ if (!isAdmin()) {
                   </div>
                 </div>
               </div>
+
+
+              <!-- Schedules -->
+              <div class="col-xl-6 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Horarios</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                          <table id="table_log" style="text-align: center; border-spacing: 20px; border-collapse: separate;">
+
+                            <thead>
+                              <tr style="border-spacing: 20px;">
+                                <th>ID Horario&nbsp;</th>
+                                <th>ID Clase&nbsp;</th>
+                                <th>Inicio&nbsp;</th>
+                                <th>Fin&nbsp;</th>
+                                <th>Día&nbsp;</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Carga toda la información que asociará a las columnas -->
+                              <?php
+                              $query = "SELECT * FROM schedule";
+                              $res = mysqli_query($db, $query);
+                              while ($row = mysqli_fetch_assoc($res)) {
+                              ?>
+                                <tr style="color:grey; border-spacing: 20px;">
+                                  <td><?php echo $row['id_schedule'] ?></td>
+                                  <td><?php echo $row['id_class'] ?></td>
+                                  <td><?php echo $row['time_start'] ?></td>
+                                  <td><?php echo $row['time_end'] ?></td>
+                                  <td><?php echo $row['day'] ?></td>
+                                </tr>
+                              <?php
+                              }
+                              ?>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!-- /.container-fluid -->
 
             </div>
