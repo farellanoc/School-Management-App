@@ -233,7 +233,7 @@ function registerTeacher()
 }
 
 
-// REGISTER TEACHER
+// REGISTER Course
 function registerCourse()
 {
     // call these variables with the global keyword to make them available in function
@@ -248,16 +248,16 @@ function registerCourse()
 
     // form validation: ensure that the form is correctly filled
     if (empty($date_start)) {
-        array_push($errors, "Se requiere un apellido");
+        array_push($errors, "Se requiere una fecha de inicio");
     }
     if (empty($description)) {
-        array_push($errors, "Se requiere un email");
+        array_push($errors, "Se requiere una descripción");
     }
     if (empty($name)) {
         array_push($errors, "Se requiere un nombre");
     }
     if (empty($date_end)) {
-        array_push($errors, "Se requiere un teléfono");
+        array_push($errors, "Se requiere una fecha final");
     }
 
     if (count($errors) == 0) {
@@ -269,6 +269,91 @@ function registerCourse()
             mysqli_query($db, $query);
         }
         array_push($success, "Curso registrado correctamente");
+    }
+}
+
+// REGISTER Class
+function registerClass()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_teacher = e($_POST['id_teacher']);
+    $id_course = e($_POST['id_course']);
+    $id_schedule = e($_POST['id_schedule']);
+    $name = e($_POST['name']);
+    $color = e($_POST['color']);
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_teacher)) {
+        array_push($errors, "Se requiere un id de profesor");
+    }
+    if (empty($id_course)) {
+        array_push($errors, "Se requiere un id de curso");
+    }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un nombre");
+    }
+    if (empty($color)) {
+        array_push($errors, "Se requiere un color");
+    }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un ");
+    }
+    if (empty($id_schedule)) {
+        array_push($errors, "Se requiere un id de horario");
+    }
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM class WHERE name = '$name'";
+        $res_check = mysqli_query($db, $check);
+        if (mysqli_num_rows($res_check) == 0) {
+            $query = "INSERT INTO class (id_class, id_teacher, id_course, id_schedule, name, color) 
+					  VALUES(NULL,'$id_teacher','$id_course','$id_schedule','$name','$color')";
+            mysqli_query($db, $query);
+        }
+        array_push($success, "Asignatura registrado correctamente");
+    }
+}
+
+// REGISTER Class
+function registerSchedule()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_class = e($_POST['id_class']);
+    $time_start = e($_POST['time_start']);
+    $time_end = e($_POST['time_end']);
+    $day = e($_POST['day']);
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_class)) {
+        array_push($errors, "Se requiere un id de asignatura");
+    }
+    if (empty($time_start)) {
+        array_push($errors, "Se requiere una hora de inicio");
+    }
+    if (empty($time_end)) {
+        array_push($errors, "Se requiere una hora de fin");
+    }
+    if (empty($day)) {
+        array_push($errors, "Se requiere un día");
+    }
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM schedule WHERE id_class = '$id_class'";
+        $res_check = mysqli_query($db, $check);
+        if (mysqli_num_rows($res_check) == 0) {
+            $query = "INSERT INTO schedule (id_schedule, id_class, time_start, time_end, day) 
+                      VALUES(NULL,'$id_class','$time_start','$time_end','$day')";
+        }
+            mysqli_query($db, $query);
+        array_push($success, "Horario registrado correctamente");
     }
 }
 
@@ -400,6 +485,16 @@ if (isset($_POST['registerTeacher_btn'])) {
 // call the registerCourse() function if registerCourse_btn is clicked
 if (isset($_POST['registerCourse_btn'])) {
     registerCourse();
+}
+
+// call the registerClass() function if registerClass_btn is clicked
+if (isset($_POST['registerClass_btn'])) {
+    registerClass();
+}
+
+// call the registerSchedule() function if registerSchedule_btn is clicked
+if (isset($_POST['registerSchedule_btn'])) {
+    registerSchedule();
 }
 
 // call the updateUser() function if update_btn is clicked
