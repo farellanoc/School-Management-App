@@ -70,10 +70,32 @@ if (!isAdmin()) {
                       <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Asignaturas</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php 
-                        $totalClasses = getClasses($db);
-                        echo $totalClasses;
-                        ?>
+                          <table id="table_log" class="table-borders">
+
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>&nbsp; &nbsp; &nbsp;</th>
+                                <th>Asignatura</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Carga toda la información que asociará a las columnas -->
+                              <?php
+                              $query = "SELECT * FROM classes";
+                              $res = mysqli_query($db, $query);
+                              while ($row = mysqli_fetch_assoc($res)) {
+                              ?>
+                                <tr style="color:grey">
+                                  <td><?php echo $row['id_class'] ?></td>
+                                  <td></td>
+                                  <td><?php echo $row['name'] ?></td>
+                                </tr>
+                              <?php
+                              }
+                              ?>
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                       <div class="col-auto">
@@ -92,10 +114,32 @@ if (!isAdmin()) {
                       <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Cursos</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php 
-                        $totalCourses = getCourses($db);
-                        echo $totalCourses;
-                        ?>
+                          <table id="table_log" class="table-borders">
+
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>&nbsp; &nbsp; &nbsp;</th>
+                                <th>Cursos</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Carga toda la información que asociará a las columnas -->
+                              <?php
+                              $query = "SELECT * FROM courses";
+                              $res = mysqli_query($db, $query);
+                              while ($row = mysqli_fetch_assoc($res)) {
+                              ?>
+                                <tr style="color:grey">
+                                  <td><?php echo $row['id_course'] ?></td>
+                                  <td></td>
+                                  <td><?php echo $row['name'] ?></td>
+                                </tr>
+                              <?php
+                              }
+                              ?>
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                       <div class="col-auto">
@@ -114,10 +158,34 @@ if (!isAdmin()) {
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Profesores</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php 
-                        $totalTeachers = getTeachers($db);
-                        echo $totalTeachers;
-                        ?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          <table id="table_log" class="table-borders">
+
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>&nbsp; &nbsp; &nbsp;</th>
+                                <th>Profesor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Carga toda la información que asociará a las columnas -->
+                              <?php
+                              $query = "SELECT * FROM teachers";
+                              $res = mysqli_query($db, $query);
+                              while ($row = mysqli_fetch_assoc($res)) {
+                              ?>
+                                <tr style="color:grey">
+                                  <td><?php echo $row['id_teacher'] ?></td>
+                                  <td></td>
+                                  <td><?php echo $row['name'] ?></td>
+                                </tr>
+                              <?php
+                              }
+                              ?>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                       <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -134,10 +202,35 @@ if (!isAdmin()) {
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Estudiantes</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php 
-                        $totalStudents = getStudents($db);
-                        echo $totalStudents;
-                        ?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                          <table id="table_log" class="table-borders">
+
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>&nbsp; &nbsp; &nbsp;</th>
+                                <th>Estudiante</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Carga toda la información que asociará a las columnas -->
+                              <?php
+                              $query = "SELECT * FROM students";
+                              $res = mysqli_query($db, $query);
+                              while ($row = mysqli_fetch_assoc($res)) {
+                              ?>
+                                <tr style="color:grey">
+                                  <td><?php echo $row['id'] ?></td>
+                                  <td></td>
+                                  <td><?php echo $row['username'] ?></td>
+                                </tr>
+                              <?php
+                              }
+                              ?>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                       <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
