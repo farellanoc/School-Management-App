@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Crear Curso</title>
+  <title>Crear Asignatura</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -57,9 +57,9 @@
                 <div class="row justify-content-center">
                   <div class="col-md-8">
                     <div class="card">
-                      <div class="card-header">Crear Curso</div>
+                      <div class="card-header">Crear Asignatura</div>
                       <div class="card-body">
-                        <form name="my-form" action="createCourse.php" method="POST">
+                        <form name="my-form" action="createClass.php" method="POST">
                           <?php if ($errors) : ?>
                             <div class="alert alert-danger" role="alert">
                               <?php echo display_error(); ?>
@@ -77,35 +77,43 @@
                             </div>
                           </div>
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Título</label>
+                            <label class="col-md-4 col-form-label text-md-right">ID Profesor</label>
                             <div class="col-md-6">
-                              <input type="text" id="name" class="form-control" name="name">
+                              <input type="text" id="id_teacher" class="form-control" name="id_teacher">
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Descripción</label>
+                            <label class="col-md-4 col-form-label text-md-right">ID Curso</label>
                             <div class="col-md-6">
-                              <input type="text" id="description" name="description" class="form-control" name="description">
+                              <input type="text" id="id_course" name="id_course" class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Empieza</label>
+                            <label class="col-md-4 col-form-label text-md-right">ID Horario</label>
                             <div class="col-md-6">
-                              <input type="date" id="date_start" name="date_start" class="form-control" name="date_start" value="2020-11-01" min="2020-01-01" max="2020-12-31">
+                              <input type="text" id="id_schedule" name="id_schedule" class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Acaba</label>
+                            <label class="col-md-4 col-form-label text-md-right">Nombre</label>
                             <div class="col-md-6">
-                            <input type="date" id="date_end" name="date_end" class="form-control" name="date_end" value="2020-11-01" min="2020-01-01" max="2020-12-31">
+                              <input type="text" id="name" name="name" class="form-control">
                             </div>
                           </div>
+                          
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Color</label>
+                            <div class="col-md-6">
+                              <input type="text" id="color" name="color" class="form-control" name="color">
+                            </div>
+                          </div>
+
                           <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary" name="registerCourse_btn">
-                              Crear curso
+                            <button type="submit" class="btn btn-primary" name="registerClass_btn">
+                              Crear Asignatura
                             </button>
                           </div>
                       </div>
