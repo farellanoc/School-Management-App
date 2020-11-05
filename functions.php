@@ -12,6 +12,7 @@ $nif = "";
 $surname = "";
 $errors = array();
 $success = array();
+$success_delete_class = array();
 $date = date('d-m-y');
 $time = date('H:i');
 $date_start = "";
@@ -314,11 +315,43 @@ function registerClass()
 					  VALUES(NULL,'$id_teacher','$id_course','$id_schedule','$name','$color')";
             mysqli_query($db, $query);
         }
-        array_push($success, "Asignatura registrado correctamente");
+        array_push($success, "Asignatura registrada correctamente");
     }
 }
+// Delete Class
+function deleteClass()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success_delete_class;
 
-// REGISTER Class
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_class = e($_POST['id_class']);
+
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_class)) {
+        array_push($errors, "Se requiere un id de asignatura");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM class WHERE id_class = $id_class";
+        $res_check = mysqli_query($db, $check);
+
+        if (mysqli_num_rows($res_check) > 0) {
+            $query = "delete from class where id_class  = $id_class";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success_delete_class, "Asignatura eliminada correctamente");
+            }
+        }
+    }
+}
+// call the deleteCLass() function if deleteClass_btn is clicked
+if (isset($_POST['deleteClass_btn'])) {
+    deleteClass();
+}
+// REGISTER Schedule
 function registerSchedule()
 {
     // call these variables with the global keyword to make them available in function
@@ -435,6 +468,21 @@ function display_success()
                 <i class="fa fa-times-circle"></i>
                 <i class="fa fa-times"></i>';
         foreach ($success as $succs) {
+            echo $succs . '<br>';
+        }
+        echo '</div>';
+    }
+}
+
+function display_success_delete_class()
+{
+    global $success_delete_class;
+
+    if (count($success_delete_class) > 0) {
+        echo '<div class="alert alert-small alert-round-medium bg-green-dark">
+                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-times"></i>';
+        foreach ($success_delete_class as $succs) {
             echo $succs . '<br>';
         }
         echo '</div>';
