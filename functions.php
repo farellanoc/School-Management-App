@@ -195,6 +195,9 @@ function registerTeacher()
     $phone = e($_POST['telephone']);
     $nif = e($_POST['nif']);
     $email = e($_POST['email']);
+    $username = e($_POST['username']);
+    $password_1 = e($_POST['password_1']);
+    $password_2 = e($_POST['password_2']);
 
 
     // form validation: ensure that the form is correctly filled
@@ -213,19 +216,35 @@ function registerTeacher()
     if (empty($nif)) {
         array_push($errors, "Se requiere un DNI");
     }
+    if (empty($username)) {
+        array_push($errors, "Se requiere un nombre de usuario");
+    }
+    if (empty($password_1)) {
+        array_push($errors, "Se requiere una clave");
+    }
+    if ($password_1 != $password_2) {
+        array_push($errors, "Las claves no coinciden");
+    }
     //comprueba que no exista el usuario
     $check = "SELECT nif FROM teachers WHERE nif = '$nif'";
     $res_check = mysqli_query($db, $check);
     if (mysqli_num_rows($res_check) >= 1) {
         array_push($errors, "El usuario ya existe");
     }
+    //comprueba que no exista el usuario
+    $check = "SELECT username FROM teachers WHERE username = '$username'";
+    $res_check = mysqli_query($db, $check);
+    if (mysqli_num_rows($res_check) >= 1) {
+        array_push($errors, "El usuario ya existe");
+    }
     // register user if there are no errors in the form
     if (count($errors) == 0) {
+        $password = md5($password_1); //encrypt the password before saving in the database
         $check = "SELECT * FROM teachers WHERE nif = '$nif'";
         $res_check = mysqli_query($db, $check);
         if (mysqli_num_rows($res_check) == 0) {
-            $query = "INSERT INTO teachers (id_teacher, name, surname, telephone, nif, email) 
-					  VALUES(NULL, '$name', '$surname','$phone','$nif', '$email')";
+            $query = "INSERT INTO teachers (id_teacher, username, pass, name, surname, telephone, nif, email) 
+					  VALUES(NULL, '$username','$password','$name', '$surname','$phone','$nif', '$email')";
             mysqli_query($db, $query);
         }
         array_push($success, "Profesor registrado correctamente");
@@ -459,6 +478,15 @@ function isAdmin()
     }
 }
 
+function isTeacher()
+{
+    if (isset($_SESSION['teacher'])) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['user']);
@@ -510,6 +538,11 @@ if (isset($_POST['login_btn'])) {
 // call the loginAdmin() function if register_btn is clicked
 if (isset($_POST['loginAdmin_btn'])) {
     loginAdmin();
+}
+
+// call the loginTeacher() function if register_btn is clicked
+if (isset($_POST['loginTeacher_btn'])) {
+    loginTeacher();
 }
 
 // LOGIN USER
@@ -574,6 +607,41 @@ function loginAdmin()
         if (mysqli_num_rows($results) == 1) { // user found
             $logged_in_admin = mysqli_fetch_assoc($results);
             $_SESSION['admin'] = $logged_in_admin;
+            $_SESSION['success'] = "Bienvenid@!";
+            header('location: index.php');
+        }
+    } else {
+        array_push($errors, "La clave o el usuario no coinciden");
+    }
+}
+
+// LOGIN TEACHER
+function loginTeacher()
+{
+    global $db, $username, $errors;
+
+    // grab form values
+    $username = e($_POST['username']);
+    $password = e($_POST['password']);
+
+    // make sure form is filled properly
+    if (empty($username)) {
+        array_push($errors, "Se requiere nombre de usuario");
+    }
+    if (empty($password)) {
+        array_push($errors, "Se requiere una clave");
+    }
+
+    // attempt login if no errors on form
+    if (count($errors) == 0) {
+        $password = md5($password);
+
+        $query = "SELECT * FROM teachers WHERE username='$username' AND pass='$password' LIMIT 1";
+        $results = mysqli_query($db, $query);
+
+        if (mysqli_num_rows($results) == 1) { // user found
+            $logged_in_teacher = mysqli_fetch_assoc($results);
+            $_SESSION['teacher'] = $logged_in_teacher;
             $_SESSION['success'] = "Bienvenid@!";
             header('location: index.php');
         }

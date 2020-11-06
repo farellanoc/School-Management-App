@@ -86,7 +86,7 @@
                           <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Apellido</label>
                             <div class="col-md-6">
-                              <input type="text" id="surname" name="surname" class="form-control" name="surname">
+                              <input type="text" id="surname" name="surname" class="form-control">
                             </div>
                           </div>
 
@@ -94,21 +94,41 @@
                             <label class="col-md-4 col-form-label text-md-right">E-Mail
                               Address</label>
                             <div class="col-md-6">
-                              <input type="text" id="email" name="email" class="form-control" name="email">
+                              <input type="text" id="email" name="email" class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Teléfono</label>
                             <div class="col-md-6">
-                              <input type="text" id="telephone" name="telephone" class="form-control" name="telephone">
+                              <input type="text" id="telephone" name="telephone" class="form-control">
                             </div>
                           </div>
 
                           <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">DNI</label>
                             <div class="col-md-6">
-                              <input type="text" id="nif" name="nif" class="form-control" name="nif">
+                              <input type="text" id="nif" name="nif" class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Username</label>
+                            <div class="col-md-6">
+                              <input type="text" id="username" name= "username" class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Contraseña</label>
+                            <div class="col-md-6">
+                              <input type="password" id="password" name="password_1" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Repite la contraseña</label>
+                            <div class="col-md-6">
+                              <input type="password" id="password2" name="password_2" class="form-control">
                             </div>
                           </div>
 
