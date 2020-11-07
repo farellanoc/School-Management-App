@@ -118,7 +118,7 @@
                           </div>
 
                           <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary" name="modifyClass_btn">
+                            <button type="submit" class="btn btn-primary" name="updateClass_btn">
                               Modificar Asignatura
 
                                 </div>
@@ -127,17 +127,17 @@
                       </div>
                       </div>
                       </form>
-                <main class="my-form">
+                <main class="my-form_delete">
                     <div class="cotainer">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="card-header">Eliminar asignatura</div>
                                     <div class="card-body">
-                                        <form name="my-form" action="modifyClass.php" method="POST">
-                                            <?php if ($errors) : ?>
+                                        <form name="my-form_delete" action="modifyClass.php" method="POST">
+                                            <?php if ($errors_delete_class) : ?>
                                                 <div class="alert alert-danger" role="alert">
-                                                    <?php echo display_error(); ?>
+                                                    <?php echo display_error_class(); ?>
                                                 </div>
                                             <?php endif; ?>
 

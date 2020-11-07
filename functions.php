@@ -11,6 +11,7 @@ $name = "";
 $nif = "";
 $surname = "";
 $errors = array();
+$errors_delete_class = array();
 $success = array();
 $success_delete_class = array();
 $date = date('d-m-y');
@@ -331,7 +332,7 @@ function deleteClass()
 
     // form validation: ensure that the form is correctly filled
     if (empty($id_class)) {
-        array_push($errors, "Se requiere un id de asignatura");
+        array_push($success_delete_class, "Se requiere un id de asignatura");
     }
 
 
@@ -339,7 +340,7 @@ function deleteClass()
         $check = "SELECT * FROM class WHERE id_class = $id_class";
         $res_check = mysqli_query($db, $check);
 
-        if (mysqli_num_rows($res_check) > 0) {
+        if (!$res_check || mysqli_num_rows($res_check) > 0) {
             $query = "delete from class where id_class  = $id_class";
             if($result = mysqli_query($db, $query) == true){
                 array_push($success_delete_class, "Asignatura eliminada correctamente");
@@ -351,6 +352,129 @@ function deleteClass()
 if (isset($_POST['deleteClass_btn'])) {
     deleteClass();
 }
+
+//
+//Update class
+function updateClass()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_class = e($_POST['id_class']);
+    $id_teacher = e($_POST['id_teacher']);
+    $id_course = e($_POST['id_course']);
+    $id_schedule = e($_POST['id_schedule']);
+    $name = e($_POST['name']);
+    $color = e($_POST['color']);
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_class)) {
+        array_push($errors, "Se requiere un id de asignatura");
+    }
+    if (empty($id_teacher)) {
+        array_push($errors, "Se requiere un id de profesor");
+    }
+    if (empty($id_course)) {
+        array_push($errors, "Se requiere un id de curso");
+    }
+    if (empty($id_schedule)) {
+        array_push($errors, "Se requiere un id de horario");
+    }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un nombre");
+    }
+    if (empty($color)) {
+        array_push($errors, "Se requiere un color");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM class WHERE id_class = $id_class";
+        $res_check = mysqli_query($db, $check);
+
+        if (mysqli_num_rows($res_check) > 0) {
+                $query = "UPDATE class SET id_teacher = '$id_teacher', id_course = '$id_course', id_schedule = '$id_schedule', name = '$name', color = '$color'
+                                        WHERE id_class = '$id_class'";
+                if($result = mysqli_query($db, $query) == true){
+                array_push($success, "Asignatura modificada correctamente");
+                }
+            }
+        }
+    }
+// call the updateClass() function if updateClass_btn is clicked
+if (isset($_POST['updateClass_btn'])) {
+    updateClass();
+}
+//Delete course
+function deleteCourse()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success_delete_class;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_course = e($_POST['id_course']);
+
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_course)) {
+        array_push($errors, "Se requiere un id de curso");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM course WHERE id_course = $id_course";
+        $res_check = mysqli_query($db, $check);
+
+        if (!$res_check || mysqli_num_rows($res_check) >= 1) {
+            $query = "delete from courses where id_course  = $id_course";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success_delete_class, "Curso eliminado correctamente");
+            }
+        }
+    }
+}
+// call the deleteCourse() function if deleteCourse_btn is clicked
+if (isset($_POST['deleteCourse_btn'])) {
+    deleteCourse();
+}
+//Delete Teacher
+function deleteTeacher()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success_delete_class;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_teacher = e($_POST['id_teacher']);
+
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_teacher)) {
+        array_push($errors, "Se requiere un id de profesor");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM teachers WHERE id_teacher = $id_teacher";
+        $res_check = mysqli_query($db, $check);
+
+        if (mysqli_num_rows($res_check) > 0) {
+            $query = "delete from teachers where id_teacher  = $id_teacher";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success_delete_class, "Profesor eliminado correctamente");
+            }
+        }
+    }
+}
+// call the deleteTeacher() function if deleteTeacher_btn is clicked
+if (isset($_POST['deleteTeacher_btn'])) {
+    deleteTeacher();
+}
+
+
 // REGISTER Schedule
 function registerSchedule()
 {
@@ -385,7 +509,7 @@ function registerSchedule()
             $query = "INSERT INTO schedule (id_schedule, id_class, time_start, time_end, day) 
                       VALUES(NULL,'$id_class','$time_start','$time_end','$day')";
         }
-            mysqli_query($db, $query);
+        mysqli_query($db, $query);
         array_push($success, "Horario registrado correctamente");
     }
 }
@@ -453,6 +577,20 @@ function display_error()
                 <i class="fa fa-times-circle"></i>
                 <i class="fa fa-times"></i>';
         foreach ($errors as $error) {
+            echo $error . '<br>';
+        }
+        echo '</div>';
+    }
+}
+function display_error_class()
+{
+    global $errors_delete_class;
+
+    if (count($errors_delete_class) > 0) {
+        echo '<div class="alert alert-small alert-round-medium bg-red2-dark">
+                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-times"></i>';
+        foreach ($errors_delete_class as $error) {
             echo $error . '<br>';
         }
         echo '</div>';

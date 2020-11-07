@@ -76,14 +76,14 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="" aria-expanded="true">
+  <a class="nav-link collapsed" href="modifyCourse.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
     <span>Modificar / eliminar Curso</span>
   </a>
 </li>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="" aria-expanded="true">
+  <a class="nav-link collapsed" href="modifyTeacher.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
     <span>Modificar / eliminar Profesor</span>
   </a>
