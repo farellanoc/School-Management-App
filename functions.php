@@ -319,41 +319,7 @@ function registerClass()
         array_push($success, "Asignatura registrada correctamente");
     }
 }
-// Delete Class
-function deleteClass()
-{
-    // call these variables with the global keyword to make them available in function
-    global $db, $errors, $success_delete_class;
 
-    // receive all input values from the form. Call the e() function
-    // defined below to escape form values
-    $id_class = e($_POST['id_class']);
-
-
-    // form validation: ensure that the form is correctly filled
-    if (empty($id_class)) {
-        array_push($success_delete_class, "Se requiere un id de asignatura");
-    }
-
-
-    if (count($errors) == 0) {
-        $check = "SELECT * FROM class WHERE id_class = $id_class";
-        $res_check = mysqli_query($db, $check);
-
-        if (!$res_check || mysqli_num_rows($res_check) > 0) {
-            $query = "delete from class where id_class  = $id_class";
-            if($result = mysqli_query($db, $query) == true){
-                array_push($success_delete_class, "Asignatura eliminada correctamente");
-            }
-        }
-    }
-}
-// call the deleteCLass() function if deleteClass_btn is clicked
-if (isset($_POST['deleteClass_btn'])) {
-    deleteClass();
-}
-
-//
 //Update class
 function updateClass()
 {
@@ -395,18 +361,60 @@ function updateClass()
         $res_check = mysqli_query($db, $check);
 
         if (mysqli_num_rows($res_check) > 0) {
-                $query = "UPDATE class SET id_teacher = '$id_teacher', id_course = '$id_course', id_schedule = '$id_schedule', name = '$name', color = '$color'
+            $query = "UPDATE class SET id_teacher = '$id_teacher', id_course = '$id_course', id_schedule = '$id_schedule', name = '$name', color = '$color'
                                         WHERE id_class = '$id_class'";
-                if($result = mysqli_query($db, $query) == true){
+            if($result = mysqli_query($db, $query) == true){
                 array_push($success, "Asignatura modificada correctamente");
-                }
             }
         }
     }
+}
 // call the updateClass() function if updateClass_btn is clicked
 if (isset($_POST['updateClass_btn'])) {
     updateClass();
 }
+// Delete Class
+function deleteClass()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success_delete_class;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_class = e($_POST['id_class']);
+
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_class)) {
+        array_push($success_delete_class, "Se requiere un id de asignatura");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM class WHERE id_class = $id_class";
+        $res_check = mysqli_query($db, $check);
+
+        if (!$res_check || mysqli_num_rows($res_check) > 0) {
+            $query = "delete from class where id_class  = $id_class";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success_delete_class, "Asignatura eliminada correctamente");
+            }
+        }
+        if (!$res_check || mysqli_num_rows($res_check) == 0) {
+            $query = "delete from class where id_class  = $id_class";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success_delete_class, "No se ha encontrado ningna asignatura con ese ID");
+            }
+        }
+    }
+}
+// call the deleteCLass() function if deleteClass_btn is clicked
+if (isset($_POST['deleteClass_btn'])) {
+    deleteClass();
+}
+
+//
+
 //Delete course
 function deleteCourse()
 {
