@@ -84,7 +84,7 @@
       <workItem from="1604575690309" duration="4091000" />
       <workItem from="1604597829430" duration="7756000" />
       <workItem from="1604755776132" duration="12849000" />
-      <workItem from="1604831322562" duration="1213000" />
+      <workItem from="1604831322562" duration="9069000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion clase modificar y eliminar asignaturas">
       <created>1604605602339</created>
@@ -100,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604769892273</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Creacion de clases modificar y eliminar">
+      <created>1604832698806</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604832698807</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,10 +159,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604756152919" />
-    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1604831872742">
+    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1604849217446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604831872742" />
+    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604849217446" />
     <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1604769898643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -164,10 +171,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604604096728" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604576025577">
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604849278882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604576025577" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604849278882" />
     <state x="0" y="0" width="1422" height="1028" key="dock-window-1" timestamp="1604759408701">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -180,9 +187,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-7" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040@0.0.1920.1040" timestamp="1604769906742" />
-    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604769368526">
+    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604848783251">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604769368526" />
+    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604848783251" />
   </component>
 </project>
