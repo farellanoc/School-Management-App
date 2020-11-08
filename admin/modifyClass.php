@@ -18,7 +18,6 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -157,7 +156,7 @@
                                                     <input type="text" id="id_class" class="form-control" name="id_class">
                                                 </div>
                                                 <div class="col-md-6 offset-md-4">
-                                                    <button type="submit" class="btn btn-primary" name="deleteClass_btn">
+                                                    <button type="submit" class="btn btn-primary" name="deleteClass_btn" id="deleteClass_btn" >
                                                         Eliminar Asignatura
                                                 </div>
                                             </div>

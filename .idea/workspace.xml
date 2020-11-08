@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b294ef-0d25-4b3e-8b44-96cf42fd1cba" name="Default Changelist" comment="Creacion de clases modificar y eliminar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/modifyClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyClass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/modifyCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyCourse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/modifyTeacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyTeacher.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +86,7 @@
       <workItem from="1604575690309" duration="4091000" />
       <workItem from="1604597829430" duration="7756000" />
       <workItem from="1604755776132" duration="12849000" />
-      <workItem from="1604831322562" duration="9069000" />
+      <workItem from="1604831322562" duration="12736000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion clase modificar y eliminar asignaturas">
       <created>1604605602339</created>
@@ -107,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604832698807</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Creacion de clases modificar y eliminar">
+      <created>1604853355521</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604853355521</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,10 +184,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604849278882" />
-    <state x="0" y="0" width="1422" height="1028" key="dock-window-1" timestamp="1604759408701">
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-1" timestamp="1604855898376">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="0" width="1422" height="1028" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1604759408701" />
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1604855898376" />
     <state x="0" y="0" width="930" height="1019" key="dock-window-2" timestamp="1604768919798">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -187,9 +196,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-7" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040@0.0.1920.1040" timestamp="1604769906742" />
-    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604848783251">
+    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604854151220">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604848783251" />
+    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604854151220" />
   </component>
 </project>

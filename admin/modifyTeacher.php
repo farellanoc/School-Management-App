@@ -117,7 +117,7 @@
 
 
                                                 <div class="col-md-6 offset-md-4">
-                                                    <button type="submit" class="btn btn-primary" name="updateTeacher_btn">
+                                                    <button type="submit" class="btn btn-primary" name="updateTeacher_btn" id="updateTeacher_btn">
                                                         Modificar Profesor
 
                                                 </div>
