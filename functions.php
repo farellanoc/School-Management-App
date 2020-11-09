@@ -11,7 +11,9 @@ $name = "";
 $nif = "";
 $surname = "";
 $errors = array();
+$errors_delete_class = array();
 $success = array();
+$success_delete_class = array();
 $date = date('d-m-y');
 $time = date('H:i');
 $date_start = "";
@@ -333,12 +335,12 @@ function registerClass()
 					  VALUES(NULL,'$id_teacher','$id_course','$id_schedule','$name','$color')";
             mysqli_query($db, $query);
         }
-        array_push($success, "Asignatura registrado correctamente");
+        array_push($success, "Asignatura registrada correctamente");
     }
 }
 
-// REGISTER Class
-function registerSchedule()
+//Update class
+function updateClass()
 {
     // call these variables with the global keyword to make them available in function
     global $db, $errors, $success;
@@ -346,137 +348,450 @@ function registerSchedule()
     // receive all input values from the form. Call the e() function
     // defined below to escape form values
     $id_class = e($_POST['id_class']);
-    $time_start = e($_POST['time_start']);
-    $time_end = e($_POST['time_end']);
-    $day = e($_POST['day']);
+    $id_teacher = e($_POST['id_teacher']);
+    $id_course = e($_POST['id_course']);
+    $id_schedule = e($_POST['id_schedule']);
+    $name = e($_POST['name']);
+    $color = e($_POST['color']);
 
     // form validation: ensure that the form is correctly filled
     if (empty($id_class)) {
         array_push($errors, "Se requiere un id de asignatura");
     }
-    if (empty($time_start)) {
-        array_push($errors, "Se requiere una hora de inicio");
+    if (empty($id_teacher)) {
+        array_push($errors, "Se requiere un id de profesor");
     }
-    if (empty($time_end)) {
-        array_push($errors, "Se requiere una hora de fin");
+    if (empty($id_course)) {
+        array_push($errors, "Se requiere un id de curso");
     }
-    if (empty($day)) {
-        array_push($errors, "Se requiere un día");
+    if (empty($id_schedule)) {
+        array_push($errors, "Se requiere un id de horario");
     }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un nombre");
+    }
+    if (empty($color)) {
+        array_push($errors, "Se requiere un color");
+    }
+
 
     if (count($errors) == 0) {
-        $check = "SELECT * FROM schedule WHERE id_class = '$id_class'";
+        $check = "SELECT * FROM class WHERE id_class = $id_class";
         $res_check = mysqli_query($db, $check);
-        if (mysqli_num_rows($res_check) == 0) {
-            $query = "INSERT INTO schedule (id_schedule, id_class, time_start, time_end, day) 
-                      VALUES(NULL,'$id_class','$time_start','$time_end','$day')";
+
+        if (mysqli_num_rows($res_check) > 0) {
+            $query = "UPDATE class SET id_teacher = '$id_teacher', id_course = '$id_course', id_schedule = '$id_schedule', name = '$name', color = '$color'
+                                        WHERE id_class = '$id_class'";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success, "Asignatura modificada correctamente");
+            }
         }
-            mysqli_query($db, $query);
-        array_push($success, "Horario registrado correctamente");
+        if (mysqli_num_rows($res_check) ==  0){
+            array_push($success, "No se ha encontrado ninguna asignatura con esa ID");
+        }
     }
 }
-
-//Update function
-function updateUser()
+// call the updateClass() function if updateClass_btn is clicked
+if (isset($_POST['updateClass_btn'])) {
+    updateClass();
+}
+// Delete Class
+function deleteClass()
 {
     // call these variables with the global keyword to make them available in function
-    global $db, $errors, $username, $email;
+    global $db, $errors, $success_delete_class;
 
     // receive all input values from the form. Call the e() function
     // defined below to escape form values
-    $username = e($_POST['username']);
-    $email = e($_POST['email']);
-    $id = e($_POST['id']);
-    $password_1 = e($_POST['password_1']);
-    $password_2 = e($_POST['password_2']);
+    $id_class = e($_POST['id_class']);
+
 
     // form validation: ensure that the form is correctly filled
-    if (empty($username)) {
-        array_push($errors, "Se requiere un nombre de usuario");
+    if (empty($id_class)) {
+        array_push($success_delete_class, "Se requiere un id de asignatura");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM class WHERE id_class = $id_class";
+        $res_check = mysqli_query($db, $check);
+
+        if (!$res_check || mysqli_num_rows($res_check) > 0) {
+            $query = "delete from class where id_class  = $id_class";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success_delete_class, "Asignatura eliminada correctamente");
+            }
+        }
+        if (!$res_check || mysqli_num_rows($res_check) == 0) {
+            $query = "delete from class where id_class  = $id_class";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success_delete_class, "No se ha encontrado ninguna asignatura con ese ID");
+            }
+        }
+    }
+}
+// call the deleteCLass() function if deleteClass_btn is clicked
+if (isset($_POST['deleteClass_btn'])) {
+    deleteClass();
+}
+
+//Update Course
+function updateCourse()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_course = e($_POST['id_course']);
+    $name = e($_POST['name']);
+    $description = e($_POST['description']);
+    $date_start = e($_POST['date_start']);
+    $date_end = e($_POST['date_end']);
+    $active = e($_POST['active']);
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_course)) {
+        array_push($errors, "Se requiere un id de curso");
+    }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un nombre");
+    }
+    if (empty($description)) {
+        array_push($errors, "Se requiere una descripcion");
+    }
+    if (empty($date_start)) {
+        array_push($errors, "Se requiere una fecha de inicio");
+    }
+    if (empty($date_end)) {
+        array_push($errors, "Se requiere una fecha de finalización");
+    }
+    if (empty($active)) {
+        array_push($errors, "Se requiere saber si esta activo");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM courses WHERE id_course = $id_course";
+        $res_check = mysqli_query($db, $check);
+
+        if (mysqli_num_rows($res_check) > 0) {
+            $query = "UPDATE courses SET name = '$name', description = '$description', active = '$active' 
+                                        WHERE id_course = '$id_course'";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success, "Asignatura modificada correctamente");
+            }
+        }
+        if (mysqli_num_rows($res_check) ==  0){
+            array_push($success, "No se ha encontrado ningun curso con esta ID");
+        }
+    }
+}
+// call the updateCourse() function if updateCourse_btn is clicked
+if (isset($_POST['updateCourse_btn'])) {
+    updateCourse();
+}
+
+//Delete course
+function deleteCourse()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success_delete_class;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_course = e($_POST['id_course']);
+
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_course)) {
+        array_push($success_delete_class, "Se requiere un id de curso");
+    }
+
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM courses WHERE id_course = $id_course";
+        $res_check = mysqli_query($db, $check);
+
+        if (!$res_check || mysqli_num_rows($res_check) >= 1) {
+            $query = "delete from courses where id_course  = $id_course";
+            if ($result = mysqli_query($db, $query) == true) {
+                array_push($success_delete_class, "Curso eliminado correctamente");
+            }
+        }
+        if (!$res_check || mysqli_num_rows($res_check) == 0) {
+            $query = "delete from courses where id_course  = $id_course";
+            if ($result = mysqli_query($db, $query) == true) {
+                array_push($success_delete_class, "No se ha encontrado ningun curso con esa ID");
+            }
+        }
+    }
+}
+// call the deleteCourse() function if deleteCourse_btn is clicked
+    if (isset($_POST['deleteCourse_btn'])) {
+        deleteCourse();
+    }
+//Update teacher
+function updateTeacher()
+{
+    // call these variables with the global keyword to make them available in function
+    global $db, $errors, $success;
+
+    // receive all input values from the form. Call the e() function
+    // defined below to escape form values
+    $id_teacher = e($_POST['id_teacher']);
+    $name = e($_POST['name']);
+    $surname = e($_POST['surname']);
+    $telephone = e($_POST['telephone']);
+    $nif = e($_POST['nif']);
+    $email = e($_POST['email']);
+
+    // form validation: ensure that the form is correctly filled
+    if (empty($id_teacher)) {
+        array_push($errors, "Se requiere un id de profesor");
+    }
+    if (empty($name)) {
+        array_push($errors, "Se requiere un nombre");
+    }
+    if (empty($surname)) {
+        array_push($errors, "Se requiere un apellido");
+    }
+    if (empty($telephone)) {
+        array_push($errors, "Se requiere un teléfono");
+    }
+    if (empty($nif)) {
+        array_push($errors, "Se requiere un DNI");
     }
     if (empty($email)) {
-        array_push($errors, "Se requiere un email");
-    }
-    if (empty($password_1)) {
-        array_push($errors, "Se requiere una clave");
-    }
-    if ($password_1 != $password_2) {
-        array_push($errors, "Las claves no coinciden");
+        array_push($errors, "Se requiere un E-mail");
     }
 
-    // update user if there are no errors in the form
+
     if (count($errors) == 0) {
-        $password = md5($password_1); //encrypt the password before saving in the database
-        $query = "UPDATE students SET username = '$username', pass = '$password', email = '$email' WHERE id = '$id'";
-        mysqli_query($db, $query);
-    }
-    header('location: login.php');
-}
-// return user array from their id
-function getUserById($id)
-{
-    global $db;
-    $query = "SELECT * FROM students WHERE id=" . $id;
-    $result = mysqli_query($db, $query);
+        $check = "SELECT * FROM teachers WHERE id_teacher = $id_teacher";
+        $res_check = mysqli_query($db, $check);
 
-    $user = mysqli_fetch_assoc($result);
-    return $user;
+        if (mysqli_num_rows($res_check) > 0) {
+            $query = "UPDATE teachers SET name = '$name', surname = '$surname', telephone = '$telephone', nif = '$telephone', email = '$email'
+                                        WHERE id_teacher = '$id_teacher'";
+            if($result = mysqli_query($db, $query) == true){
+                array_push($success, "Profesor modificado correctamente");
+            }
+        }
+        if (mysqli_num_rows($res_check) ==  0){
+            array_push($success, "No se ha encontrado ningun profesor con esta ID");
+        }
+    }
 }
+// call the updateTeacher() function if updateTeacher_btn is clicked
+if (isset($_POST['updateTeacher_btn'])) {
+    updateTeacher();
+}
+
+//Delete Teacher
+    function deleteTeacher()
+    {
+        // call these variables with the global keyword to make them available in function
+        global $db, $errors, $success_delete_class;
+
+        // receive all input values from the form. Call the e() function
+        // defined below to escape form values
+        $id_teacher = e($_POST['id_teacher']);
+
+
+        // form validation: ensure that the form is correctly filled
+        if (empty($id_teacher)) {
+            array_push($success_delete_class, "Se requiere un id de profesor");
+        }
+
+
+        if (count($errors) == 0) {
+            $check = "SELECT * FROM teachers WHERE id_teacher = $id_teacher";
+            $res_check = mysqli_query($db, $check);
+
+            if (!$res_check || mysqli_num_rows($res_check) > 0) {
+                $query = "delete from teachers where id_teacher  = $id_teacher";
+                if ($result = mysqli_query($db, $query) == true) {
+                    array_push($success_delete_class, "Profesor eliminado correctamente");
+                }
+            }
+            if (!$res_check || mysqli_num_rows($res_check) == 0) {
+                $query = "delete from teachers where id_teacher  = $id_teacher";
+                if ($result = mysqli_query($db, $query) == true) {
+                    array_push($success_delete_class, "No se ha encontrado ningún profesor con esta ID");
+                }
+            }
+        }
+    }
+
+// call the deleteTeacher() function if deleteTeacher_btn is clicked
+    if (isset($_POST['deleteTeacher_btn'])) {
+        deleteTeacher();
+    }
+
+
+// REGISTER Schedule
+    function registerSchedule()
+    {
+        // call these variables with the global keyword to make them available in function
+        global $db, $errors, $success;
+
+        // receive all input values from the form. Call the e() function
+        // defined below to escape form values
+        $id_class = e($_POST['id_class']);
+        $time_start = e($_POST['time_start']);
+        $time_end = e($_POST['time_end']);
+        $day = e($_POST['day']);
+
+        // form validation: ensure that the form is correctly filled
+        if (empty($id_class)) {
+            array_push($errors, "Se requiere un id de asignatura");
+        }
+        if (empty($time_start)) {
+            array_push($errors, "Se requiere una hora de inicio");
+        }
+        if (empty($time_end)) {
+            array_push($errors, "Se requiere una hora de fin");
+        }
+        if (empty($day)) {
+            array_push($errors, "Se requiere un día");
+        }
+
+        if (count($errors) == 0) {
+            $check = "SELECT * FROM schedule WHERE id_class = '$id_class'";
+            $res_check = mysqli_query($db, $check);
+            if (mysqli_num_rows($res_check) == 0) {
+                $query = "INSERT INTO schedule (id_schedule, id_class, time_start, time_end, day) 
+                      VALUES(NULL,'$id_class','$time_start','$time_end','$day')";
+            }
+            mysqli_query($db, $query);
+            array_push($success, "Horario registrado correctamente");
+        }
+    }
+
+//Update function
+    function updateUser()
+    {
+        // call these variables with the global keyword to make them available in function
+        global $db, $errors, $username, $email;
+
+        // receive all input values from the form. Call the e() function
+        // defined below to escape form values
+        $username = e($_POST['username']);
+        $email = e($_POST['email']);
+        $id = e($_POST['id']);
+        $password_1 = e($_POST['password_1']);
+        $password_2 = e($_POST['password_2']);
+
+        // form validation: ensure that the form is correctly filled
+        if (empty($username)) {
+            array_push($errors, "Se requiere un nombre de usuario");
+        }
+        if (empty($email)) {
+            array_push($errors, "Se requiere un email");
+        }
+        if (empty($password_1)) {
+            array_push($errors, "Se requiere una clave");
+        }
+        if ($password_1 != $password_2) {
+            array_push($errors, "Las claves no coinciden");
+        }
+
+        // update user if there are no errors in the form
+        if (count($errors) == 0) {
+            $password = md5($password_1); //encrypt the password before saving in the database
+            $query = "UPDATE students SET username = '$username', pass = '$password', email = '$email' WHERE id = '$id'";
+            mysqli_query($db, $query);
+        }
+        header('location: login.php');
+    }
+
+// return user array from their id
+    function getUserById($id)
+    {
+        global $db;
+        $query = "SELECT * FROM students WHERE id=" . $id;
+        $result = mysqli_query($db, $query);
+
+        $user = mysqli_fetch_assoc($result);
+        return $user;
+    }
 
 // escape string
-function e($val)
-{
-    global $db;
-    return mysqli_real_escape_string($db, trim($val));
-}
+    function e($val)
+    {
+        global $db;
+        return mysqli_real_escape_string($db, trim($val));
+    }
 
-function display_error()
-{
-    global $errors;
+    function display_error()
+    {
+        global $errors;
 
-    if (count($errors) > 0) {
-        echo '<div class="alert alert-small alert-round-medium bg-red2-dark">
+        if (count($errors) > 0) {
+            echo '<div class="alert alert-small alert-round-medium bg-red2-dark">
                 <i class="fa fa-times-circle"></i>
                 <i class="fa fa-times"></i>';
-        foreach ($errors as $error) {
-            echo $error . '<br>';
+            foreach ($errors as $error) {
+                echo $error . '<br>';
+            }
+            echo '</div>';
         }
-        echo '</div>';
     }
-}
 
-function display_success()
-{
-    global $success;
+    function display_error_class()
+    {
+        global $errors_delete_class;
 
-    if (count($success) > 0) {
-        echo '<div class="alert alert-small alert-round-medium bg-green-dark">
+        if (count($errors_delete_class) > 0) {
+            echo '<div class="alert alert-small alert-round-medium bg-red2-dark">
                 <i class="fa fa-times-circle"></i>
                 <i class="fa fa-times"></i>';
-        foreach ($success as $succs) {
-            echo $succs . '<br>';
+            foreach ($errors_delete_class as $error) {
+                echo $error . '<br>';
+            }
+            echo '</div>';
         }
-        echo '</div>';
     }
-}
 
-function isLoggedIn()
-{
-    if (isset($_SESSION['user'])) {
-        return true;
-    } else {
-        return false;
-    }
-}
+    function display_success()
+    {
+        global $success;
 
-function isAdmin()
-{
-    if (isset($_SESSION['admin'])) {
-        return true;
-    } else {
-        return false;
+        if (count($success) > 0) {
+            echo '<div class="alert alert-small alert-round-medium bg-green-dark">
+                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-times"></i>';
+            foreach ($success as $succs) {
+                echo $succs . '<br>';
+            }
+            echo '</div>';
+        }
     }
-}
+
+    function display_success_delete_class()
+    {
+        global $success_delete_class;
+
+        if (count($success_delete_class) > 0) {
+            echo '<div class="alert alert-small alert-round-medium bg-green-dark">
+                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-times"></i>';
+            foreach ($success_delete_class as $succs) {
+                echo $succs . '<br>';
+            }
+            echo '</div>';
+        }
+    }
+
+    function isLoggedIn()
+    {
+        if (isset($_SESSION['user'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 function isTeacher()
 {
@@ -493,52 +808,66 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
 }
 
+    function isAdmin()
+    {
+        if (isset($_SESSION['admin'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['user']);
+        header("location: login.php");
+    }
 
 
 // call the register() function if register_btn is clicked
-if (isset($_POST['register_btn'])) {
-    register();
-}
+    if (isset($_POST['register_btn'])) {
+        register();
+    }
 
 // call the registerAdmin() function if register_btn is clicked
-if (isset($_POST['registerAdmin_btn'])) {
-    registerAdmin();
-}
+    if (isset($_POST['registerAdmin_btn'])) {
+        registerAdmin();
+    }
 
 // call the registerTeacher() function if register_btn is clicked
-if (isset($_POST['registerTeacher_btn'])) {
-    registerTeacher();
-}
+    if (isset($_POST['registerTeacher_btn'])) {
+        registerTeacher();
+    }
 
 // call the registerCourse() function if registerCourse_btn is clicked
-if (isset($_POST['registerCourse_btn'])) {
-    registerCourse();
-}
+    if (isset($_POST['registerCourse_btn'])) {
+        registerCourse();
+    }
 
 // call the registerClass() function if registerClass_btn is clicked
-if (isset($_POST['registerClass_btn'])) {
-    registerClass();
-}
+    if (isset($_POST['registerClass_btn'])) {
+        registerClass();
+    }
 
 // call the registerSchedule() function if registerSchedule_btn is clicked
-if (isset($_POST['registerSchedule_btn'])) {
-    registerSchedule();
-}
+    if (isset($_POST['registerSchedule_btn'])) {
+        registerSchedule();
+    }
 
 // call the updateUser() function if update_btn is clicked
-if (isset($_POST['update_btn'])) {
-    updateUser();
-}
+    if (isset($_POST['update_btn'])) {
+        updateUser();
+    }
 
 // call the login() function if register_btn is clicked
-if (isset($_POST['login_btn'])) {
-    login();
-}
+    if (isset($_POST['login_btn'])) {
+        login();
+    }
 
 // call the loginAdmin() function if register_btn is clicked
-if (isset($_POST['loginAdmin_btn'])) {
-    loginAdmin();
-}
+    if (isset($_POST['loginAdmin_btn'])) {
+        loginAdmin();
+    }
 
 // call the loginTeacher() function if register_btn is clicked
 if (isset($_POST['loginTeacher_btn'])) {
@@ -546,73 +875,75 @@ if (isset($_POST['loginTeacher_btn'])) {
 }
 
 // LOGIN USER
-function login()
-{
-    global $db, $username, $errors;
+    function login()
+    {
+        global $db, $username, $errors;
 
-    // grab form values
-    $username = e($_POST['username']);
-    $password = e($_POST['password']);
+        // grab form values
+        $username = e($_POST['username']);
+        $password = e($_POST['password']);
 
-    // make sure form is filled properly
-    if (empty($username)) {
-        array_push($errors, "Se requiere nombre de usuario");
-    }
-    if (empty($password)) {
-        array_push($errors, "Se requiere una clave");
-    }
-
-    // attempt login if no errors on form
-    if (count($errors) == 0) {
-        $password = md5($password);
-
-        $query = "SELECT * FROM students WHERE username='$username' AND pass='$password' LIMIT 1";
-        $results = mysqli_query($db, $query);
-
-        if (mysqli_num_rows($results) == 1) { // user found
-            $logged_in_user = mysqli_fetch_assoc($results);
-            $_SESSION['user'] = $logged_in_user;
-            $_SESSION['success'] = "Bienvenid@!";
-            header('location: index.php');
+        // make sure form is filled properly
+        if (empty($username)) {
+            array_push($errors, "Se requiere nombre de usuario");
         }
-    } else {
-        array_push($errors, "La clave o el usuario no coinciden");
+        if (empty($password)) {
+            array_push($errors, "Se requiere una clave");
+        }
+
+        // attempt login if no errors on form
+        if (count($errors) == 0) {
+            $password = md5($password);
+
+            $query = "SELECT * FROM students WHERE username='$username' AND pass='$password' LIMIT 1";
+            $results = mysqli_query($db, $query);
+
+            if (mysqli_num_rows($results) == 1) { // user found
+                $logged_in_user = mysqli_fetch_assoc($results);
+                $_SESSION['user'] = $logged_in_user;
+                $_SESSION['success'] = "Bienvenid@!";
+                header('location: index.php');
+            }
+        } else {
+            array_push($errors, "La clave o el usuario no coinciden");
+        }
     }
-}
 
 // LOGIN ADMIN
-function loginAdmin()
-{
-    global $db, $username, $errors;
+    function loginAdmin()
+    {
+        global $db, $username, $errors;
 
-    // grab form values
-    $username = e($_POST['username']);
-    $password = e($_POST['password']);
+        // grab form values
+        $username = e($_POST['username']);
+        $password = e($_POST['password']);
 
-    // make sure form is filled properly
-    if (empty($username)) {
-        array_push($errors, "Se requiere nombre de usuario");
-    }
-    if (empty($password)) {
-        array_push($errors, "Se requiere una clave");
-    }
-
-    // attempt login if no errors on form
-    if (count($errors) == 0) {
-        $password = md5($password);
-
-        $query = "SELECT * FROM users_admin WHERE username='$username' AND password='$password' LIMIT 1";
-        $results = mysqli_query($db, $query);
-
-        if (mysqli_num_rows($results) == 1) { // user found
-            $logged_in_admin = mysqli_fetch_assoc($results);
-            $_SESSION['admin'] = $logged_in_admin;
-            $_SESSION['success'] = "Bienvenid@!";
-            header('location: index.php');
+        // make sure form is filled properly
+        if (empty($username)) {
+            array_push($errors, "Se requiere nombre de usuario");
         }
-    } else {
-        array_push($errors, "La clave o el usuario no coinciden");
+        if (empty($password)) {
+            array_push($errors, "Se requiere una clave");
+        }
+
+        // attempt login if no errors on form
+        if (count($errors) == 0) {
+            $password = md5($password);
+
+            $query = "SELECT * FROM users_admin WHERE username='$username' AND password='$password' LIMIT 1";
+            $results = mysqli_query($db, $query);
+
+            if (mysqli_num_rows($results) == 1) { // user found
+                $logged_in_admin = mysqli_fetch_assoc($results);
+                $_SESSION['admin'] = $logged_in_admin;
+                $_SESSION['success'] = "Bienvenid@!";
+                header('location: index.php');
+            }
+        } else {
+            array_push($errors, "La clave o el usuario no coinciden");
+        }
     }
+
 }
 
 // LOGIN TEACHER

@@ -45,7 +45,7 @@
 <li class="nav-item">
   <a class="nav-link collapsed" href="createTeacher.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
-    <span>Crear profesor</span>
+    <span>Crear profesor/a</span>
   </a>
 </li>
 
@@ -69,21 +69,21 @@
 </div>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="" aria-expanded="true">
+  <a class="nav-link collapsed" href="modifyClass.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
     <span>Modificar / eliminar Asignatura</span>
   </a>
 </li>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="" aria-expanded="true">
+  <a class="nav-link collapsed" href="modifyCourse.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
     <span>Modificar / eliminar Curso</span>
   </a>
 </li>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="" aria-expanded="true">
+  <a class="nav-link collapsed" href="modifyTeacher.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
     <span>Modificar / eliminar Profesor</span>
   </a>

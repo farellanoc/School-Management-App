@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Crear profesor</title>
+  <title>Crear profesor/a</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -57,7 +57,7 @@
                 <div class="row justify-content-center">
                   <div class="col-md-8">
                     <div class="card">
-                      <div class="card-header">Crear profesor</div>
+                      <div class="card-header">Crear profesor/a</div>
                       <div class="card-body">
                         <form name="my-form" action="createTeacher.php" method="POST">
                           <?php if ($errors) : ?>

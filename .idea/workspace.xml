@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d3b294ef-0d25-4b3e-8b44-96cf42fd1cba" name="Default Changelist" comment="Creacion de clases modificar y eliminar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/modifyClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyClass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/modifyCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyCourse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/modifyTeacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyTeacher.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="PHPFran" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jkIWCkDeWGBBtZfAAVW3zgiOTr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Programas\wamp64\www\P6-php\admin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHP Script.modifyClass.php">
+    <configuration name="login.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/P6-php/login.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="modifyClass.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/admin/modifyClass.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.modifyClass.php" />
+        <item itemvalue="JavaScript Debug.login.php" />
+        <item itemvalue="JavaScript Debug.login.php" />
+        <item itemvalue="JavaScript Debug.login.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3b294ef-0d25-4b3e-8b44-96cf42fd1cba" name="Default Changelist" comment="" />
+      <created>1604341691969</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604341691969</updated>
+      <workItem from="1604341693116" duration="1375000" />
+      <workItem from="1604575690309" duration="4091000" />
+      <workItem from="1604597829430" duration="7756000" />
+      <workItem from="1604755776132" duration="12849000" />
+      <workItem from="1604831322562" duration="12736000" />
+    </task>
+    <task id="LOCAL-00001" summary="Creacion clase modificar y eliminar asignaturas">
+      <created>1604605602339</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604605602339</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Creacion de clases modificar y eliminar">
+      <created>1604769892273</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604769892273</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Creacion de clases modificar y eliminar">
+      <created>1604832698806</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604832698807</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Creacion de clases modificar y eliminar">
+      <created>1604853355521</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604853355521</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creacion clase modificar y eliminar asignaturas" />
+    <MESSAGE value="Creacion de clases modificar y eliminar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creacion de clases modificar y eliminar" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="540" y="174" key="#CLI_Interpreters" timestamp="1604576766827">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="174" key="#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040" timestamp="1604576766827" />
+    <state x="586" y="198" key="#Inspections" timestamp="1604605351250">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1604605351250" />
+    <state x="667" y="162" key="#PHP" timestamp="1604576767977">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="162" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1604576767977" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604576236854">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604576236854" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1604576764129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604576764129" />
+    <state x="742" y="242" key="NewPhpClassDialog" timestamp="1604756140643">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="742" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604756140643" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1604756152919">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604756152919" />
+    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1604849217446">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604849217446" />
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1604769898643">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604769898643" />
+    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604604096728">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604604096728" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604849278882">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604849278882" />
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-1" timestamp="1604855898376">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1604855898376" />
+    <state x="0" y="0" width="930" height="1019" key="dock-window-2" timestamp="1604768919798">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="0" width="930" height="1019" key="dock-window-2/0.0.1920.1040@0.0.1920.1040" timestamp="1604768919798" />
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-3" timestamp="1604769906742">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040@0.0.1920.1040" timestamp="1604769906742" />
+    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604854151220">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604854151220" />
+  </component>
+</project>
