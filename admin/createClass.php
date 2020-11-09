@@ -15,6 +15,7 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="customStyle.css">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -22,7 +23,7 @@
 </head>
 
 <body id="page-top">
- <?php include("includes/session.php"); ?>
+  <?php include("includes/session.php"); ?>
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -77,23 +78,51 @@
                             </div>
                           </div>
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">ID Profesor</label>
+                            <label class="col-md-4 col-form-label text-md-right">Profesor</label>
                             <div class="col-md-6">
-                              <input type="text" id="id_teacher" class="form-control" name="id_teacher">
+                              <select name="id_teacher" class="select-box">
+                              <option value="0">Selecciona:</option>
+                              <?php
+                              $query = "SELECT * FROM teachers";
+                              $res_query = mysqli_query($db, $query);
+                              while ($queryData = mysqli_fetch_array($res_query)) {
+                                echo '<option value="' . $queryData[id_teacher] . '">' . $queryData[name] . '</option>';
+                              }
+                              ?>
+                            </select>
+                            </div>
+                            
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Curso</label>
+                            <div class="col-md-6">
+                              <select name="id_course" class="select-box">
+                              <option value="0">Selecciona:</option>
+                              <?php
+                              $query = "SELECT * FROM courses";
+                              $res_query = mysqli_query($db, $query);
+                              while ($queryData = mysqli_fetch_array($res_query)) {
+                                echo '<option value="' . $queryData[id_course] . '">' . $queryData[name] . '</option>';
+                              }
+                              ?>
+                            </select>
                             </div>
                           </div>
 
                           <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">ID Curso</label>
+                            <label class="col-md-4 col-form-label text-md-right">Horario</label>
                             <div class="col-md-6">
-                              <input type="text" id="id_course" name="id_course" class="form-control">
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">ID Horario</label>
-                            <div class="col-md-6">
-                              <input type="text" id="id_schedule" name="id_schedule" class="form-control">
+                              <select name="id_schedule" class="select-box">
+                              <option value="0">Selecciona:</option>
+                              <?php
+                              $query = "SELECT * FROM schedule";
+                              $res_query = mysqli_query($db, $query);
+                              while ($queryData = mysqli_fetch_array($res_query)) {
+                                echo '<option value="' . $queryData[id_schedule] . '">' . $queryData[id_schedule] . ' - ' . $queryData[time_start] . '</option>';
+                              }
+                              ?>
+                            </select>
                             </div>
                           </div>
 
@@ -103,11 +132,11 @@
                               <input type="text" id="name" name="name" class="form-control">
                             </div>
                           </div>
-                          
+
                           <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Color</label>
                             <div class="col-md-6">
-                              <input type="text" id="color" name="color" class="form-control" name="color">
+                              <input type="color" id="color" name="color" value="#ff0000">
                             </div>
                           </div>
 

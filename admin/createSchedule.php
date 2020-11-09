@@ -15,6 +15,7 @@
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="customStyle.css">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -77,9 +78,18 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-md-4 col-form-label text-md-right">ID Asignatura</label>
+                                                        <label class="col-md-4 col-form-label text-md-right">Asignatura</label>
                                                         <div class="col-md-6">
-                                                            <input type="text" id="id_class" class="form-control" name="id_class">
+                                                            <select name="id_class" class="select-box">
+                                                                <option value="0">Selecciona:</option>
+                                                                <?php
+                                                                $query = "SELECT * FROM class";
+                                                                $res_query = mysqli_query($db, $query);
+                                                                while ($queryData = mysqli_fetch_array($res_query)) {
+                                                                    echo '<option value="' . $queryData[id_class] . '">' . $queryData[name] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
                                                         </div>
                                                     </div>
 
