@@ -944,8 +944,6 @@ if (isset($_POST['loginTeacher_btn'])) {
         }
     }
 
-
-
 // LOGIN TEACHER
 function loginTeacher()
 {
