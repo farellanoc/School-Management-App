@@ -3,13 +3,17 @@ require_once('bdd.php');
 include('../functions.php');
 
 
-$sql = "SELECT id, title, start, end, color FROM events ";
-//$sql = "SELECT s.id_schedule, s.id_class, s.time_start, s.time_end, s.day, c.name, c.color  FROM schedule s INNER JOIN class c ON s.id_class = c.id_class ORDER BY s.id_schedule ASC";
+$sql = "SELECT id, title , start, end FROM events";
+//$sql = "SELECT s.id_schedule AS id, s.id_class, s.time_start AS start, s.time_end AS end, s.day, c.name AS title, c.color AS color  
+//		FROM schedule s INNER JOIN class c ON s.id_class = c.id_class ORDER BY s.id_schedule ASC";
 
 $req = $bdd->prepare($sql);
 $req->execute();
 
 $events = $req->fetchAll();
+
+//console log for finding db query
+print_r($events);
 
 ?>
 
@@ -114,8 +118,8 @@ $events = $req->fetchAll();
 			selectHelper: true,
 			select: function(start, end) {
 				
-				$('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
-				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+				$('#ModalAdd #start').val(moment(start).format('HH:mm:ss'));
+				$('#ModalAdd #end').val(moment(end).format('HH:mm:ss'));
 				$('#ModalAdd').modal('show');
 			},
 			eventRender: function(event, element) {
