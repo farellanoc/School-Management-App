@@ -902,7 +902,7 @@ if (isset($_POST['loginTeacher_btn'])) {
                 $logged_in_user = mysqli_fetch_assoc($results);
                 $_SESSION['user'] = $logged_in_user;
                 $_SESSION['success'] = "Bienvenid@!";
-                header('location: index.php');
+                header('location: calendar/index.php');
             }
         } else {
             array_push($errors, "La clave o el usuario no coinciden");
