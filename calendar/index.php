@@ -1,176 +1,195 @@
-<?php
-require_once('bdd.php');
-include('../functions.php');
-
-
-$sql = "SELECT id, title , start, end FROM events";
-//$sql = "SELECT s.id_schedule AS id, s.id_class, s.time_start AS start, s.time_end AS end, s.day, c.name AS title, c.color AS color  
-//		FROM schedule s INNER JOIN class c ON s.id_class = c.id_class ORDER BY s.id_schedule ASC";
-
-$req = $bdd->prepare($sql);
-$req->execute();
-
-$events = $req->fetchAll();
-
-//console log for finding db query
-print_r($events);
-
-?>
-
+<?php require('config.php');?>
 <!DOCTYPE html>
-<html lang="es">
-
+<html>
 <head>
+    <title>Calandar</title>
+    
+    <link href='<?=$dir;?>packages/core/main.css' rel='stylesheet' />
+    <link href='<?=$dir;?>packages/daygrid/main.css' rel='stylesheet' />
+    <link href='<?=$dir;?>packages/timegrid/main.css' rel='stylesheet' />
+    <link href='<?=$dir;?>packages/list/main.css' rel='stylesheet' />
+    <link href='<?=$dir;?>packages/bootstrap/css/bootstrap.css' rel='stylesheet' />
+    <link href="<?=$dir;?>packages/jqueryui/custom-theme/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <link href='<?=$dir;?>packages/datepicker/datepicker.css' rel='stylesheet' />
+    <link href='<?=$dir;?>packages/colorpicker/bootstrap-colorpicker.min.css' rel='stylesheet' />
+    <link href='<?=$dir;?>style.css' rel='stylesheet' />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Inicio</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- FullCalendar -->
-	<link href='css/fullcalendar.css' rel='stylesheet' />
-
-
-    <!-- Custom CSS -->
-    <style>
-	#calendar {
-		max-width: 800px;
-	}
-	.col-centered{
-		float: none;
-		margin: 0 auto;
-	}
-    </style>
-
-
-
+    <script src='<?=$dir;?>packages/core/main.js'></script>
+    <script src='<?=$dir;?>packages/daygrid/main.js'></script>
+    <script src='<?=$dir;?>packages/timegrid/main.js'></script>
+    <script src='<?=$dir;?>packages/list/main.js'></script>
+    <script src='<?=$dir;?>packages/interaction/main.js'></script>
+    <script src='<?=$dir;?>packages/jquery/jquery.js'></script>
+    <script src='<?=$dir;?>packages/jqueryui/jqueryui.min.js'></script>
+    <script src='<?=$dir;?>packages/bootstrap/js/bootstrap.js'></script>
+    <script src='<?=$dir;?>packages/datepicker/datepicker.js'></script>
+    <script src='<?=$dir;?>packages/colorpicker/bootstrap-colorpicker.min.js'></script>
+    <script src='<?=$dir;?>calendar.js'></script>
 </head>
-
 <body>
 
-	<!-- Navigation -->
-	<?php if (isset($_SESSION['user'])) : ?>
-        <?php
-        $user = $_SESSION['user']['username'];
-        $name = $_SESSION['user']['name'];
-        $surname = $_SESSION['user']['surname'];
-        $email = $_SESSION['user']['email'];
-        ?>
-    <?php include('./navbarCalendar.php'); ?>
+<div class="modal fade" id="addeventmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>AppEducativa Calendario</h1>
-                <p class="lead">Aquí podrás consultar los horarios de las asignaturas donde te has inscrito</p>
-                <div id="calendar" class="col-centered">
-                </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Add Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-			
-        </div>
-        <!-- /.row -->
 
-    </div>
-    <!-- /.container -->
+            <div class="modal-body">
 
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
+                <div class="container-fluid">
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-	
-	<!-- FullCalendar -->
-	<script src='js/moment.min.js'></script>
-	<script src='js/fullcalendar/fullcalendar.min.js'></script>
-	<script src='js/fullcalendar/fullcalendar.js'></script>
-	<script src='js/fullcalendar/locale/es.js'></script>
-	
-	
-	<script>
+                    <form id="createEvent" class="form-horizontal">
 
-	$(document).ready(function() {
+                    <div class="row">
 
-		var date = new Date();
-       var yyyy = date.getFullYear().toString();
-       var mm = (date.getMonth()+1).toString().length == 1 ? "0"+(date.getMonth()+1).toString() : (date.getMonth()+1).toString();
-       var dd  = (date.getDate()).toString().length == 1 ? "0"+(date.getDate()).toString() : (date.getDate()).toString();
-		
-		$('#calendar').fullCalendar({
-			header: {
-				 language: 'es',
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,basicDay',
+                        <div class="col-md-6">
 
-			},
-			defaultDate: yyyy+"-"+mm+"-"+dd,
-			editable: false,
-			eventLimit: true, // allow "more" link when too many events
-			selectable: true,
-			selectHelper: true,
-			select: function(start, end) {
-				
-				$('#ModalAdd #start').val(moment(start).format('HH:mm:ss'));
-				$('#ModalAdd #end').val(moment(end).format('HH:mm:ss'));
-				$('#ModalAdd').modal('show');
-			},
-			eventRender: function(event, element) {
-				element.bind('dblclick', function() {
-					$('#ModalEdit #id').val(event.id);
-					$('#ModalEdit #title').val(event.title);
-					$('#ModalEdit #color').val(event.color);
-					$('#ModalEdit').modal('show');
-				});
-			},
-			eventDrop: function(event, delta, revertFunc) { // si changement de position
+                            <div id="title-group" class="form-group">
+                                <label class="control-label" for="title">Title</label>
+                                <input type="text" class="form-control" name="title">
+                                <!-- errors will go here -->
+                            </div>
 
-				edit(event);
+                            <div id="startdate-group" class="form-group">
+                                <label class="control-label" for="startDate">Start Date</label>
+                                <input type="text" class="form-control datetimepicker" id="startDate" name="startDate">
+                                <!-- errors will go here -->
+                            </div>
 
-			},
-			eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
+                            <div id="enddate-group" class="form-group">
+                                <label class="control-label" for="endDate">End Date</label>
+                                <input type="text" class="form-control datetimepicker" id="endDate" name="endDate">
+                                <!-- errors will go here -->
+                            </div>
 
-				edit(event);
+                        </div>
 
-			},
-			events: [
-			<?php foreach($events as $event): 
-			
-				$start = explode(" ", $event['start']);
-				$end = explode(" ", $event['end']);
-				if($start[1] == '00:00:00'){
-					$start = $start[0];
-				}else{
-					$start = $event['start'];
-				}
-				if($end[1] == '00:00:00'){
-					$end = $end[0];
-				}else{
-					$end = $event['end'];
-				}
-			?>
-				{
-					id: '<?php echo $event['id']; ?>',
-					title: '<?php echo $event['title']; ?>',
-					start: '<?php echo $start; ?>',
-					end: '<?php echo $end; ?>',
-					color: '<?php echo $event['color']; ?>',
-				},
-			<?php endforeach; ?>
-			]
-		});
+                        <div class="col-md-6">
 
-	});
+                            <div id="color-group" class="form-group">
+                                <label class="control-label" for="color">Colour</label>
+                                <input type="text" class="form-control colorpicker" name="color" value="#6453e9">
+                                <!-- errors will go here -->
+                            </div>
 
-</script>
-<?php endif ?>
+                            <div id="textcolor-group" class="form-group">
+                                <label class="control-label" for="textcolor">Text Colour</label>
+                                <input type="text" class="form-control colorpicker" name="text_color" value="#ffffff">
+                                <!-- errors will go here -->
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+
+            </form>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="editeventmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Update Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="container-fluid">
+
+                    <form id="editEvent" class="form-horizontal">
+                    <input type="hidden" id="editEventId" name="editEventId" value="">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div id="edit-title-group" class="form-group">
+                                <label class="control-label" for="editEventTitle">Title</label>
+                                <input type="text" class="form-control" id="editEventTitle" name="editEventTitle">
+                                <!-- errors will go here -->
+                            </div>
+
+                            <div id="edit-startdate-group" class="form-group">
+                                <label class="control-label" for="editStartDate">Start Date</label>
+                                <input type="text" class="form-control datetimepicker" id="editStartDate" name="editStartDate">
+                                <!-- errors will go here -->
+                            </div>
+
+                            <div id="edit-enddate-group" class="form-group">
+                                <label class="control-label" for="editEndDate">End Date</label>
+                                <input type="text" class="form-control datetimepicker" id="editEndDate" name="editEndDate">
+                                <!-- errors will go here -->
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div id="edit-color-group" class="form-group">
+                                <label class="control-label" for="editColor">Colour</label>
+                                <input type="text" class="form-control colorpicker" id="editColor" name="editColor" value="#6453e9">
+                                <!-- errors will go here -->
+                            </div>
+
+                            <div id="edit-textcolor-group" class="form-group">
+                                <label class="control-label" for="editTextColor">Text Colour</label>
+                                <input type="text" class="form-control colorpicker" id="editTextColor" name="editTextColor" value="#ffffff">
+                                <!-- errors will go here -->
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-danger" id="deleteEvent" data-id>Delete</button>
+            </div>
+
+            </form>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="container">
+
+    <p><br>Read the full <a href="https://demos.dcblog.dev/Jquery-fullcalendar-with-php-and-mysql/">jQuery Fullcalender with PHP and MySQL</a> Tutorial</p>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addeventmodal">
+      Add Event
+    </button>
+
+    <div id="calendar"></div>
+</div>
+
 </body>
-
 </html>
