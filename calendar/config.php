@@ -5,7 +5,7 @@ use Dcblogdev\PdoWrapper\Database;
 
 $options = [
     'host' => "localhost",
-    'database' => "calendar",
+    'database' => "p6ddbb",
     'username' => "root",
     'password' => ""
 ];

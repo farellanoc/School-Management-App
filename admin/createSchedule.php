@@ -107,7 +107,6 @@
                                                         <div class="col-md-6">
                                                             <input type="time" id="time_end" name="time_end" min="09:00" max="18:00" required>
                                                         </div>
-                                                        <em>Ejemplo: 11</em>
                                                     </div>
 
                                                     <div class="form-group row">
@@ -115,7 +114,6 @@
                                                         <div class="col-md-6">
                                                             <input type="date" id="day" name="day" class="form-control" value="2020-11-01" min="2020-01-01" max="2020-12-31">
                                                         </div>
-                                                        <em>lunes martes miercoles...</em>
                                                     </div>
 
                                                     <div class="col-md-6 offset-md-4">
