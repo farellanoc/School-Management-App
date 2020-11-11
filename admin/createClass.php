@@ -81,48 +81,32 @@
                             <label class="col-md-4 col-form-label text-md-right">Profesor</label>
                             <div class="col-md-6">
                               <select name="id_teacher" class="select-box">
-                              <option value="0">Selecciona:</option>
-                              <?php
-                              $query = "SELECT * FROM teachers";
-                              $res_query = mysqli_query($db, $query);
-                              while ($queryData = mysqli_fetch_array($res_query)) {
-                                echo '<option value="' . $queryData[id_teacher] . '">' . $queryData[name] . '</option>';
-                              }
-                              ?>
-                            </select>
+                                <option value="0">Selecciona:</option>
+                                <?php
+                                $query = "SELECT * FROM teachers";
+                                $res_query = mysqli_query($db, $query);
+                                while ($queryData = mysqli_fetch_array($res_query)) {
+                                  echo '<option value="' . $queryData[id_teacher] . '">' . $queryData[name] . '</option>';
+                                }
+                                ?>
+                              </select>
                             </div>
-                            
+
                           </div>
 
                           <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Curso</label>
                             <div class="col-md-6">
                               <select name="id_course" class="select-box">
-                              <option value="0">Selecciona:</option>
-                              <?php
-                              $query = "SELECT * FROM courses";
-                              $res_query = mysqli_query($db, $query);
-                              while ($queryData = mysqli_fetch_array($res_query)) {
-                                echo '<option value="' . $queryData[id_course] . '">' . $queryData[name] . '</option>';
-                              }
-                              ?>
-                            </select>
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Horario</label>
-                            <div class="col-md-6">
-                              <select name="id_schedule" class="select-box">
-                              <option value="0">Selecciona:</option>
-                              <?php
-                              $query = "SELECT * FROM schedule";
-                              $res_query = mysqli_query($db, $query);
-                              while ($queryData = mysqli_fetch_array($res_query)) {
-                                echo '<option value="' . $queryData[id_schedule] . '">' . $queryData[id_schedule] . ' - ' . $queryData[time_start] . '</option>';
-                              }
-                              ?>
-                            </select>
+                                <option value="0">Selecciona:</option>
+                                <?php
+                                $query = "SELECT * FROM courses";
+                                $res_query = mysqli_query($db, $query);
+                                while ($queryData = mysqli_fetch_array($res_query)) {
+                                  echo '<option value="' . $queryData[id_course] . '">' . $queryData[name] . '</option>';
+                                }
+                                ?>
+                              </select>
                             </div>
                           </div>
 
@@ -137,6 +121,28 @@
                             <label class="col-md-4 col-form-label text-md-right">Color</label>
                             <div class="col-md-6">
                               <input type="color" id="color" name="color" value="#ff0000">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Hora inicio</label>
+                            <div class="col-md-6">
+                              <input type="time" id="time_start" name="time_start" min="09:00" max="18:00" required>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Hora fin</label>
+
+                            <div class="col-md-6">
+                              <input type="time" id="time_end" name="time_end" min="09:00" max="18:00" required>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Día</label>
+                            <div class="col-md-6">
+                              <input type="date" id="day" name="day" class="form-control" value="2020-11-01" min="2020-01-01" max="2020-12-31">
                             </div>
                           </div>
 
