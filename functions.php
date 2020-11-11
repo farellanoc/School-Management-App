@@ -644,9 +644,9 @@ if (isset($_POST['updateTeacher_btn'])) {
         $day = e($_POST['day']);
 
         // form validation: ensure that the form is correctly filled
-        if (empty($id_class)) {
-            array_push($errors, "Se requiere un id de asignatura");
-        }
+        //if (empty($id_class)) {
+          //  array_push($errors, "Se requiere un id de asignatura");
+        //}
         if (empty($time_start)) {
             array_push($errors, "Se requiere una hora de inicio");
         }

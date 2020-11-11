@@ -61,10 +61,10 @@
                       <div class="card-header">Crear Asignatura</div>
                       <div class="card-body">
                         <form name="my-form" action="createClass.php" method="POST">
-                          <?php if ($errors) : ?>
-                            <div class="alert alert-danger" role="alert">
-                              <?php echo display_error(); ?>
-                            </div>
+                             <?php if ($errors) : ?>
+                                  <div class="alert alert-danger" role="alert">
+                                  <?php echo display_error(); ?>
+                             </div>
                           <?php endif; ?>
 
                           <?php if ($success) : ?>
