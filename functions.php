@@ -344,13 +344,14 @@ function registerClass()
         if (mysqli_num_rows($res_check) == 0) {
 
             //Generate upcoming schedule ID to bind it to class
-            // $id_schedule = (int) "SELECT MAX(id_schedule) FROM schedule";  
-            // $id_schedule = $id_schedule + 1;
+            $id_schedule = "SELECT MAX(id_schedule) as id FROM schedule";  
+            $queryResult = mysqli_query($db, $id_schedule);
+            $id_schedule = (int) $queryResult->fetch_assoc()['id'];
+            $id_schedule += 1;
 
-            $queryIdSchedule = "SELECT (MAX(id_schedule) FROM schedule) AS id_schedule";
-            $result1 = mysqli_query($db, $queryIdSchedule);
-            $quantity = mysqli_fetch_assoc($result1);
-            $id_schedule = $quantity["id_schedule"] + 1;
+            // 1. Creamos horario
+            // 2. Obtenemos ID de ese horario
+            // 3. Creamos clase -> relacionar con ese id de horario
 
             $query = "INSERT INTO class (id_class, id_teacher, id_course, id_schedule, name, color) 
 					  VALUES(NULL,'$id_teacher','$id_course','$id_schedule','$name','$color')";
@@ -362,9 +363,9 @@ function registerClass()
 
             //Get the last id from a class
             $queryIdSchedule2 = "SELECT (MAX(id_class) FROM class) AS id_class";
-            $result2 = mysqli_query($db, $queryIdSchedule2);
-            $quantity2 = mysqli_fetch_assoc($result2);
-            $id_class = $quantity2["id_class"] + 1;
+            $id_class = "SELECT MAX(id_class) as id FROM class";  
+            $queryResult = mysqli_query($db, $id_class);
+            $id_class = (int) $queryResult->fetch_assoc()['id'];
 
             $query2 = "INSERT INTO schedule (id_schedule, id_class, time_start, time_end, day) 
                       VALUES(NULL,'$id_class','$time_start','$time_end','$day')";
@@ -801,8 +802,7 @@ function display_success()
 
     if (count($success) > 0) {
         echo '<div class="alert alert-small alert-round-medium bg-green-dark">
-                <i class="fa fa-times-circle"></i>
-                <i class="fa fa-times"></i>';
+                <i class="fa fa-check"></i>';
         foreach ($success as $succs) {
             echo $succs . '<br>';
         }
