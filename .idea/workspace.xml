@@ -21,9 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b294ef-0d25-4b3e-8b44-96cf42fd1cba" name="Default Changelist" comment="Creacion de clases modificar y eliminar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/modifyClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyClass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/modifyCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyCourse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/modifyTeacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyTeacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/createClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/createClass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="PHPFran" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,8 +69,9 @@
       <list>
         <item itemvalue="PHP Script.modifyClass.php" />
         <item itemvalue="JavaScript Debug.login.php" />
+        <item itemvalue="PHP Script.modifyClass.php" />
         <item itemvalue="JavaScript Debug.login.php" />
-        <item itemvalue="JavaScript Debug.login.php" />
+        <item itemvalue="PHP Script.modifyClass.php" />
       </list>
     </recent_temporary>
   </component>
@@ -87,6 +88,9 @@
       <workItem from="1604597829430" duration="7756000" />
       <workItem from="1604755776132" duration="12849000" />
       <workItem from="1604831322562" duration="12736000" />
+      <workItem from="1604952201761" duration="1336000" />
+      <workItem from="1605034135965" duration="4078000" />
+      <workItem from="1605116701104" duration="6152000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion clase modificar y eliminar asignaturas">
       <created>1604605602339</created>
@@ -164,26 +168,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="742" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604756140643" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1604756152919">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1605124909955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604756152919" />
-    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1604849217446">
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605124909955" />
+    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1605037930508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604849217446" />
+    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605037930508" />
     <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1604769898643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="239" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604769898643" />
-    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604604096728">
+    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605128644195">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604604096728" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604849278882">
+    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605128644195" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605119545657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604849278882" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605119545657" />
     <state x="-7" y="0" width="974" height="1047" key="dock-window-1" timestamp="1604855898376">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -196,9 +200,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-7" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040@0.0.1920.1040" timestamp="1604769906742" />
-    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604854151220">
+    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604953085594">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604854151220" />
+    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604953085594" />
   </component>
 </project>
