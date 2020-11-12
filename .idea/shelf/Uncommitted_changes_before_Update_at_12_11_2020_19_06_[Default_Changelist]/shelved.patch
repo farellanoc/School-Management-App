@@ -1,0 +1,100 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d3b294ef-0d25-4b3e-8b44-96cf42fd1cba\" name=\"Default Changelist\" comment=\"Creacion de clases modificar y eliminar\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/admin/modifyClass.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/admin/modifyClass.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/admin/modifyCourse.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/admin/modifyCourse.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/admin/modifyTeacher.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/admin/modifyTeacher.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"PHPFran\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1jkIWCkDeWGBBtZfAAVW3zgiOTr\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/admin\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"F:\\Programas\\wamp64\\www\\P6-php\\admin\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"PHP Script.modifyClass.php\">\r\n    <configuration name=\"login.php\" type=\"JavascriptDebugType\" temporary=\"true\" nameIsGenerated=\"true\" uri=\"http://localhost:63342/P6-php/login.php\" useBuiltInWebServerPort=\"true\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"modifyClass.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/admin/modifyClass.php\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"PHP Script.modifyClass.php\" />\r\n        <item itemvalue=\"JavaScript Debug.login.php\" />\r\n        <item itemvalue=\"JavaScript Debug.login.php\" />\r\n        <item itemvalue=\"JavaScript Debug.login.php\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d3b294ef-0d25-4b3e-8b44-96cf42fd1cba\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1604341691969</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1604341691969</updated>\r\n      <workItem from=\"1604341693116\" duration=\"1375000\" />\r\n      <workItem from=\"1604575690309\" duration=\"4091000\" />\r\n      <workItem from=\"1604597829430\" duration=\"7756000\" />\r\n      <workItem from=\"1604755776132\" duration=\"12849000\" />\r\n      <workItem from=\"1604831322562\" duration=\"12736000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Creacion clase modificar y eliminar asignaturas\">\r\n      <created>1604605602339</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604605602339</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Creacion de clases modificar y eliminar\">\r\n      <created>1604769892273</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604769892273</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Creacion de clases modificar y eliminar\">\r\n      <created>1604832698806</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604832698807</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Creacion de clases modificar y eliminar\">\r\n      <created>1604853355521</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604853355521</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Creacion clase modificar y eliminar asignaturas\" />\r\n    <MESSAGE value=\"Creacion de clases modificar y eliminar\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Creacion de clases modificar y eliminar\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"540\" y=\"174\" key=\"#CLI_Interpreters\" timestamp=\"1604576766827\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"540\" y=\"174\" key=\"#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604576766827\" />\r\n    <state x=\"586\" y=\"198\" key=\"#Inspections\" timestamp=\"1604605351250\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"586\" y=\"198\" key=\"#Inspections/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604605351250\" />\r\n    <state x=\"667\" y=\"162\" key=\"#PHP\" timestamp=\"1604576767977\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"667\" y=\"162\" key=\"#PHP/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604576767977\" />\r\n    <state x=\"414\" y=\"174\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1604576236854\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"414\" y=\"174\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604576236854\" />\r\n    <state x=\"740\" y=\"274\" key=\"FileChooserDialogImpl\" timestamp=\"1604576764129\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"740\" y=\"274\" key=\"FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604576764129\" />\r\n    <state x=\"742\" y=\"242\" key=\"NewPhpClassDialog\" timestamp=\"1604756140643\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"742\" y=\"242\" key=\"NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604756140643\" />\r\n    <state x=\"794\" y=\"443\" key=\"NewPhpFileDialog\" timestamp=\"1604756152919\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"794\" y=\"443\" key=\"NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604756152919\" />\r\n    <state x=\"1260\" y=\"243\" key=\"RollbackChangesDialog\" timestamp=\"1604849217446\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"1260\" y=\"243\" key=\"RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604849217446\" />\r\n    <state x=\"552\" y=\"239\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1604769898643\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"552\" y=\"239\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604769898643\" />\r\n    <state x=\"565\" y=\"130\" key=\"com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser\" timestamp=\"1604604096728\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"565\" y=\"130\" key=\"com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604604096728\" />\r\n    <state x=\"777\" y=\"433\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1604849278882\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"777\" y=\"433\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604849278882\" />\r\n    <state x=\"-7\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-1\" timestamp=\"1604855898376\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"-7\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-1/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604855898376\" />\r\n    <state x=\"0\" y=\"0\" width=\"930\" height=\"1019\" key=\"dock-window-2\" timestamp=\"1604768919798\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"0\" y=\"0\" width=\"930\" height=\"1019\" key=\"dock-window-2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604768919798\" />\r\n    <state x=\"-7\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-3\" timestamp=\"1604769906742\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"-7\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-3/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604769906742\" />\r\n    <state x=\"949\" y=\"148\" width=\"587\" height=\"801\" key=\"find.popup\" timestamp=\"1604854151220\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"949\" y=\"148\" width=\"587\" height=\"801\" key=\"find.popup/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1604854151220\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 7ad7fc82fb28a802f6107091555cbd48dab1e38c)
++++ .idea/workspace.xml	(date 1605204382792)
+@@ -21,9 +21,9 @@
+   <component name="ChangeListManager">
+     <list default="true" id="d3b294ef-0d25-4b3e-8b44-96cf42fd1cba" name="Default Changelist" comment="Creacion de clases modificar y eliminar">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/admin/modifyClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyClass.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/admin/modifyCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyCourse.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/admin/modifyTeacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/modifyTeacher.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/createClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/createClass.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/calendar/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/index.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -36,7 +36,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="PHPFran" />
++        <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -69,8 +69,9 @@
+       <list>
+         <item itemvalue="PHP Script.modifyClass.php" />
+         <item itemvalue="JavaScript Debug.login.php" />
++        <item itemvalue="PHP Script.modifyClass.php" />
+         <item itemvalue="JavaScript Debug.login.php" />
+-        <item itemvalue="JavaScript Debug.login.php" />
++        <item itemvalue="PHP Script.modifyClass.php" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -87,6 +88,9 @@
+       <workItem from="1604597829430" duration="7756000" />
+       <workItem from="1604755776132" duration="12849000" />
+       <workItem from="1604831322562" duration="12736000" />
++      <workItem from="1604952201761" duration="1336000" />
++      <workItem from="1605034135965" duration="4078000" />
++      <workItem from="1605116701104" duration="6152000" />
+     </task>
+     <task id="LOCAL-00001" summary="Creacion clase modificar y eliminar asignaturas">
+       <created>1604605602339</created>
+@@ -164,26 +168,26 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="742" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604756140643" />
+-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1604756152919">
++    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1605124909955">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604756152919" />
+-    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1604849217446">
++    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605124909955" />
++    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1605037930508">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604849217446" />
++    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605037930508" />
+     <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1604769898643">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="552" y="239" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604769898643" />
+-    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604604096728">
++    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605128644195">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604604096728" />
+-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604849278882">
++    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605128644195" />
++    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605119545657">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604849278882" />
++    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605119545657" />
+     <state x="-7" y="0" width="974" height="1047" key="dock-window-1" timestamp="1604855898376">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -196,9 +200,9 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="-7" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040@0.0.1920.1040" timestamp="1604769906742" />
+-    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604854151220">
++    <state x="949" y="148" width="587" height="801" key="find.popup" timestamp="1604953085594">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604854151220" />
++    <state x="949" y="148" width="587" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604953085594" />
+   </component>
+ </project>
+\ No newline at end of file
