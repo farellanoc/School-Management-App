@@ -735,7 +735,7 @@ function registerEnrollment()
     }
 
     if (count($errors) == 0) {
-            $query = "INSERT INTO enrollment (id_course, id, status) 
+            $query = "INSERT INTO enrollment (id_course, id_student, status) 
                       VALUES('$id_course','$id',1)";
         mysqli_query($db, $query);
         array_push($success, "Matrícula realizada correctamente");
