@@ -3,7 +3,7 @@ require_once('bdd.php');
 include('../functions.php');
 
 
-$sql = "SELECT sc.id_schedule, cl.name, c.description, sc.day, sc.time_start, sc.time_end  FROM students s 
+$sql = "SELECT sc.id_schedule, cl.name, cl.color, c.description, sc.day, sc.time_start, sc.time_end  FROM students s 
 INNER JOIN enrollment e ON s.id = e.id_student
 INNER JOIN courses c ON e.id_course = c.id_course
 INNER JOIN class cl ON c.id_course = cl.id_course
@@ -143,7 +143,8 @@ $events = $req->fetchAll();
                         start: '<?php echo $event["day"]."T".$event["time_start"] ?>',
                         end: '<?php echo $event["day"]."T".$event["time_end"] ?>',
                         title: '<?php echo $event["name"]; ?>',
-                        id: '<?php echo $i; ?>'
+                        id: '<?php echo $i; ?>',
+                        color: '<?php echo $event["color"]; ?>',
                     }
                     ,
                     <?php
