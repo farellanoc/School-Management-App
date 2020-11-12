@@ -23,52 +23,16 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Crear
+  Matrícula
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="createClass.php" aria-expanded="true">
+  <a class="nav-link collapsed" href="assignCourse.php" aria-expanded="true">
     <i class="fas fa-plus"></i>
-    <span>Crear asignatura</span>
+    <span>Asignar curso</span>
   </a>
 </li>
-
-<!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
-  <a class="nav-link collapsed" href="createCourse.php" aria-expanded="true">
-    <i class="fas fa-plus"></i>
-    <span>Crear curso</span>
-  </a>
-</li>
-
-
-<li class="nav-item">
-  <a class="nav-link collapsed" href="createSchedule.php" aria-expanded="true">
-    <i class="fas fa-plus"></i>
-    <span>Crear horario</span>
-  </a>
-</li>
-
-<!-- Heading -->
-<div class="sidebar-heading">
-  Modificaciones
-</div>
-
-<li class="nav-item">
-  <a class="nav-link collapsed" href="modifyClass.php" aria-expanded="true">
-    <i class="fas fa-plus"></i>
-    <span>Modificar / eliminar Asignatura</span>
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link collapsed" href="modifyCourse.php" aria-expanded="true">
-    <i class="fas fa-plus"></i>
-    <span>Modificar / eliminar Curso</span>
-  </a>
-</li>
-
 
 <!-- Sidebar Toggler (Sidebar) -->
 <div class="text-center d-none d-md-inline">
