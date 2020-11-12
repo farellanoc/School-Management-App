@@ -23,6 +23,7 @@
 </head>
 
 <body id="page-top">
+
   <?php include("includes/session.php"); ?>
 
   <!-- Page Wrapper -->

@@ -21,9 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b294ef-0d25-4b3e-8b44-96cf42fd1cba" name="Default Changelist" comment="Creacion de clases modificar y eliminar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/createClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/createClass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teacher/assignCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/teacher/assignCourse.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="CalendarPHP" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -172,10 +171,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605124909955" />
-    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1605037930508">
+    <state x="1260" y="243" key="RollbackChangesDialog" timestamp="1605205649664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605037930508" />
+    <state x="1260" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605205649664" />
     <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1604769898643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -184,10 +183,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605128644195" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605119545657">
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605205652958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605119545657" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605205652958" />
     <state x="-7" y="0" width="974" height="1047" key="dock-window-1" timestamp="1604855898376">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
